@@ -325,11 +325,6 @@ const Subject = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.wit
 })(["color:", ";margin-bottom:0.25rem;text-align:center;"], ({
   theme
 }) => theme.colors.black);
-const config = {
-  type: "spring",
-  damping: 20,
-  stiffness: 100
-};
 /* harmony default export */ __webpack_exports__["default"] = (props => {
   const {
     subject
@@ -337,35 +332,43 @@ const config = {
   return __jsx(Card, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 32
+    },
+    __self: undefined
+  }, __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_2__["AnimatePresence"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
     },
     __self: undefined
   }, __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_2__["motion"].div, {
-    transition: config,
+    key: props.children,
     initial: {
-      scale: 0,
-      opacity: 0
+      opacity: 0,
+      x: 300
     },
     animate: {
-      scale: 1,
-      opacity: 1
+      opacity: 1,
+      x: 0
+    },
+    transition: {
+      duration: 0.5
     },
     exit: {
-      x: 0,
       opacity: 0
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 34
     },
     __self: undefined
   }, __jsx(Subject, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 41
     },
     __self: undefined
-  }, subject), props.children));
+  }, subject), props.children)));
 });
 
 /***/ }),

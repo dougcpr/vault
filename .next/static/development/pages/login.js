@@ -20522,45 +20522,48 @@ var Subject = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div.with
   var theme = _ref3.theme;
   return theme.colors.black;
 });
-var config = {
-  type: "spring",
-  damping: 20,
-  stiffness: 100
-};
 /* harmony default export */ __webpack_exports__["default"] = (function (props) {
   var subject = props.subject;
   return __jsx(Card, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 32
+    },
+    __self: this
+  }, __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_2__["AnimatePresence"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
     },
     __self: this
   }, __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_2__["motion"].div, {
-    transition: config,
+    key: props.children,
     initial: {
-      scale: 0,
-      opacity: 0
+      opacity: 0,
+      x: 300
     },
     animate: {
-      scale: 1,
-      opacity: 1
+      opacity: 1,
+      x: 0
+    },
+    transition: {
+      duration: 0.5
     },
     exit: {
-      x: 0,
       opacity: 0
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 34
     },
     __self: this
   }, __jsx(Subject, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 41
     },
     __self: this
-  }, subject), props.children));
+  }, subject), props.children)));
 });
 
 /***/ }),

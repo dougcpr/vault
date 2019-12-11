@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Card = styled.div`
  border-radius: 0.1875rem;
@@ -26,25 +26,22 @@ const Subject = styled.div`
   text-align: center;
 `;
 
-const config = {
-	type: "spring",
-	damping: 20,
-	stiffness: 100
-};
-
 export default (props) => {
 	const {subject} = props;
 	return (
 			<Card>
-				<motion.div
-					transition={config}
-					initial={{ scale: 0, opacity: 0 }}
-					animate={{ scale: 1, opacity: 1 }}
-					exit={{ x: 0, opacity: 0 }}
-				>
-					<Subject>{subject}</Subject>
-					{props.children}
-				</motion.div>
+				<AnimatePresence>
+					<motion.div
+						key={props.children}
+						initial={{ opacity: 0, x: 300 }}
+						animate={{ opacity: 1, x: 0 }}
+						transition={{ duration: 0.5 }}
+						exit={{ opacity: 0 }}
+					>
+						<Subject>{subject}</Subject>
+						{props.children}
+					</motion.div>
+				</AnimatePresence>
 			</Card>
 		)
 }

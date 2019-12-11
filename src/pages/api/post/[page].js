@@ -16,6 +16,6 @@ const page = (req, res) => {
 			'success': `true`
 		});
 	}
-}
+};
 
 export default cors(page);
