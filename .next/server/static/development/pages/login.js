@@ -88,10 +88,21 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/json/stringify */ "core-js/library/fn/json/stringify");
+
+/***/ }),
 
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/assign.js":
 /*!**********************************************************************!*\
@@ -489,6 +500,39 @@ const Center = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.with
 
 /***/ }),
 
+/***/ "./src/layouts/DualButtonGrid.js":
+/*!***************************************!*\
+  !*** ./src/layouts/DualButtonGrid.js ***!
+  \***************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+var _jsxFileName = "/Users/docooper/webdev/vault/src/layouts/DualButtonGrid.js";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const DualButtonGrid = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
+  displayName: "DualButtonGrid",
+  componentId: "sc-15kk586-0"
+})(["display:grid;grid-template-columns:45% auto 45%;"]);
+/* harmony default export */ __webpack_exports__["default"] = (props => {
+  return __jsx(DualButtonGrid, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 11
+    },
+    __self: undefined
+  }, props.children);
+});
+
+/***/ }),
+
 /***/ "./src/pages/login.js":
 /*!****************************!*\
   !*** ./src/pages/login.js ***!
@@ -498,68 +542,110 @@ const Center = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.with
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _layouts_CenterLayout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../layouts/CenterLayout */ "./src/layouts/CenterLayout.js");
-/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Card */ "./src/components/Card.js");
-/* harmony import */ var _components_Input__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/Input */ "./src/components/Input.js");
-/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Button */ "./src/components/Button.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/core-js/json/stringify */ "./node_modules/@babel/runtime-corejs2/core-js/json/stringify.js");
+/* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _layouts_CenterLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/CenterLayout */ "./src/layouts/CenterLayout.js");
+/* harmony import */ var _layouts_DualButtonGrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layouts/DualButtonGrid */ "./src/layouts/DualButtonGrid.js");
+/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Card */ "./src/components/Card.js");
+/* harmony import */ var _components_Input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Input */ "./src/components/Input.js");
+/* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Button */ "./src/components/Button.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_7__);
+
 var _jsxFileName = "/Users/docooper/webdev/vault/src/pages/login.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
 
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = (() => {
-  function login() {
-    console.log(username, password);
+  async function login() {
+    const login = await fetch('api/post/login', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()({
+        username,
+        password
+      })
+    }); // await Router.push('/dashboard')
+  }
+
+  async function register() {
+    await next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push('/register');
   }
 
   const [username, password] = '';
-  return __jsx(_layouts_CenterLayout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return __jsx(_layouts_CenterLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 13
+      lineNumber: 28
     },
     __self: undefined
-  }, __jsx(_components_Card__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, __jsx(_components_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 14
+      lineNumber: 29
     },
     __self: undefined
-  }, __jsx(_components_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }, __jsx(_components_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
     value: username,
     label: "Username",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 15
+      lineNumber: 30
     },
     __self: undefined
-  }), __jsx(_components_Input__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), __jsx(_components_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
     value: password,
     type: "password",
     label: "Password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 16
+      lineNumber: 31
     },
     __self: undefined
-  }), __jsx(_components_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), __jsx(_layouts_DualButtonGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 32
+    },
+    __self: undefined
+  }, __jsx(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    onClick: register,
+    block: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: undefined
+  }, "Register"), __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: undefined
+  }), __jsx(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
     onClick: login,
     block: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 17
+      lineNumber: 35
     },
     __self: undefined
-  }, "Login")));
+  }, "Login"))));
 });
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**********************************!*\
   !*** multi ./src/pages/login.js ***!
   \**********************************/
@@ -568,6 +654,17 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 module.exports = __webpack_require__(/*! /Users/docooper/webdev/vault/src/pages/login.js */"./src/pages/login.js");
 
+
+/***/ }),
+
+/***/ "core-js/library/fn/json/stringify":
+/*!****************************************************!*\
+  !*** external "core-js/library/fn/json/stringify" ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/json/stringify");
 
 /***/ }),
 
@@ -601,6 +698,17 @@ module.exports = require("core-js/library/fn/object/get-own-property-symbols");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/keys");
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
 
 /***/ }),
 

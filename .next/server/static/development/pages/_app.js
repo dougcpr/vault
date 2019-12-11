@@ -591,6 +591,7 @@ const theme = {
     button_height: '2.25rem',
     default: 'rgba(0,0,0,.3)',
     disabled: '#f5f5f5',
+    fontFamily: 'Roboto, sans-serif',
     green: '#50bc91',
     input_border_hover: 'rgba(0,0,0,.87)',
     red: '#bc5b50',
@@ -599,6 +600,15 @@ const theme = {
     width_medium: '12.5rem'
   }
 };
+const GlobalStyle = styled_components__WEBPACK_IMPORTED_MODULE_3__["createGlobalStyle"]`
+	@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: ${props => props.theme.fontFamily};
+  }
+`;
 class Vault extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
   render() {
     const {
@@ -609,13 +619,19 @@ class Vault extends next_app__WEBPACK_IMPORTED_MODULE_2___default.a {
       theme: theme,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 26
+        lineNumber: 37
       },
       __self: this
-    }, __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
+    }, __jsx(GlobalStyle, {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 27
+        lineNumber: 38
+      },
+      __self: this
+    }), __jsx(Component, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, pageProps, {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 39
       },
       __self: this
     })));
