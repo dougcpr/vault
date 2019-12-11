@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -315,8 +315,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! framer-motion */ "framer-motion");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(framer_motion__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "/Users/docooper/webdev/vault/src/components/Card.js";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
 
 
 const Card = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
@@ -333,6 +336,11 @@ const Subject = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.wit
 })(["color:", ";margin-bottom:0.25rem;text-align:center;"], ({
   theme
 }) => theme.colors.black);
+const config = {
+  type: "spring",
+  damping: 20,
+  stiffness: 100
+};
 /* harmony default export */ __webpack_exports__["default"] = (props => {
   const {
     subject
@@ -340,16 +348,35 @@ const Subject = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.wit
   return __jsx(Card, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 38
+    },
+    __self: undefined
+  }, __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_2__["motion"].div, {
+    transition: config,
+    initial: {
+      scale: 0,
+      opacity: 0
+    },
+    animate: {
+      scale: 1,
+      opacity: 1
+    },
+    exit: {
+      x: 0,
+      opacity: 0
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
     },
     __self: undefined
   }, __jsx(Subject, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 45
     },
     __self: undefined
-  }, subject), props.children);
+  }, subject), props.children));
 });
 
 /***/ }),
@@ -565,17 +592,23 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 /* harmony default export */ __webpack_exports__["default"] = (() => {
   async function login() {
-    const login = await fetch('api/post/login', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()({
-        username,
-        password
-      })
-    }); // await Router.push('/dashboard')
+    try {
+      const response = await fetch('http://localhost:3000/api/post/login', {
+        method: 'POST',
+        body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()({
+          username,
+          password
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const json = await response.json();
+      console.log('Success:', _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(json));
+    } catch (error) {
+      console.error(error);
+    } // await Router.push('/dashboard')
+
   }
 
   async function register() {
@@ -586,13 +619,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
   return __jsx(_layouts_CenterLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 28
+      lineNumber: 33
     },
     __self: undefined
   }, __jsx(_components_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 29
+      lineNumber: 34
     },
     __self: undefined
   }, __jsx(_components_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -600,7 +633,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     label: "Username",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 35
     },
     __self: undefined
   }), __jsx(_components_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -609,13 +642,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     label: "Password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 36
     },
     __self: undefined
   }), __jsx(_layouts_DualButtonGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 37
     },
     __self: undefined
   }, __jsx(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -623,13 +656,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     block: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 38
     },
     __self: undefined
   }, "Register"), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 39
     },
     __self: undefined
   }), __jsx(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -637,7 +670,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     block: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 40
     },
     __self: undefined
   }, "Login"))));
@@ -645,7 +678,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!**********************************!*\
   !*** multi ./src/pages/login.js ***!
   \**********************************/
@@ -698,6 +731,17 @@ module.exports = require("core-js/library/fn/object/get-own-property-symbols");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/keys");
+
+/***/ }),
+
+/***/ "framer-motion":
+/*!********************************!*\
+  !*** external "framer-motion" ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("framer-motion");
 
 /***/ }),
 

@@ -8,16 +8,21 @@ import Router from 'next/router'
 
 export default () => {
 	async function login() {
-		const login =  await fetch(
-			'api/post/login',
-			{
-				method: 'POST',
-				headers: {
-					Accept: 'application/json',
-					'Content-Type': 'application/json',
-				},
-				body: JSON.stringify({username, password})
-			});
+		try {
+			const response = await fetch(
+				'http://localhost:3000/api/post/login',
+				{
+					method: 'POST',
+					body: JSON.stringify({username, password}),
+					headers: {
+						'Content-Type': 'application/json',
+					}
+				});
+			const json = await response.json();
+			console.log('Success:', JSON.stringify(json));
+		} catch (error) {
+			console.error(error);
+		}
 		// await Router.push('/dashboard')
 	}
 	async function register() {

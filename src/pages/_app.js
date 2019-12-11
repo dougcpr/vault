@@ -1,6 +1,7 @@
 import React from 'react';
 import App from 'next/app'
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 
 const theme = {
 	colors: {
@@ -32,11 +33,13 @@ const GlobalStyle = createGlobalStyle`
 
 export default class Vault extends App {
 	render() {
-		const { Component, pageProps } = this.props;
+		const { Component, pageProps, router } = this.props;
 			return (
 				<ThemeProvider theme={theme}>
 					<GlobalStyle />
-					<Component {...pageProps} />
+					<AnimatePresence exitBeforeEnter>
+						<Component {...pageProps}  key={router.route}/>
+					</AnimatePresence>
 				</ThemeProvider>
 		)
 	}
