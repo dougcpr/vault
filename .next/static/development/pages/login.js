@@ -20408,7 +20408,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 var isFlatMixin = function isFlatMixin(props) {
   var cardShadow = Object(styled_components__WEBPACK_IMPORTED_MODULE_3__["css"])(["box-shadow:", ""], function (_ref) {
     var theme = _ref.theme;
-    theme.style.box_shadow;
+    return theme.style.box_shadow;
   });
   return props.flat ? cardShadow : null;
 };

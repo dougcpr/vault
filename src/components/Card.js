@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const isFlatMixin = (props) => {
 	const cardShadow = css`
-		box-shadow: ${({theme}) => {theme.style.box_shadow}}
+		box-shadow: ${({ theme }) => theme.style.box_shadow}
 	`;
 	return props.flat ? cardShadow : null;
 };
