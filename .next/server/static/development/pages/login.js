@@ -311,26 +311,40 @@ const Button = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.button.w
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! framer-motion */ "framer-motion");
-/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(framer_motion__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/extends */ "./node_modules/@babel/runtime-corejs2/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! framer-motion */ "framer-motion");
+/* harmony import */ var framer_motion__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(framer_motion__WEBPACK_IMPORTED_MODULE_4__);
+
+
 var _jsxFileName = "/Users/docooper/webdev/vault/src/components/Card.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
 
 
 
-const Card = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
+
+const isFlatMixin = props => {
+  const cardShadow = Object(styled_components__WEBPACK_IMPORTED_MODULE_3__["css"])(["box-shadow:", ""], ({
+    theme
+  }) => {
+    theme.style.box_shadow;
+  });
+  return props.flat ? cardShadow : null;
+};
+
+const Card = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
   displayName: "Card",
   componentId: "sc-1rpygc8-0"
-})(["border-radius:0.1875rem;background-color:", ";box-shadow:0 0.0625rem 0.1875rem rgba(0,0,0,0.12),0 0.0625rem 0.125rem rgba(0,0,0,0.24);box-sizing:border-box;color:", ";display:flex;flex-direction:column;margin:0;min-width:6.25rem;max-width:15.625rem;overflow:hidden;padding:0.75rem 1rem 0.75rem 0.875rem;transition:1s ease-in-out;width:100%;justify-content:space-around;"], ({
+})(["border-radius:0.1875rem;background-color:", ";box-sizing:border-box;color:", ";display:flex;flex-direction:column;margin:0;min-width:6.25rem;max-width:15.625rem;overflow:hidden;padding:0.75rem 1rem 0.75rem 0.875rem;transition:1s ease-in-out;width:100%;justify-content:space-around;", ";"], ({
   theme
 }) => theme.colors.white, ({
   theme
-}) => theme.colors.default);
-const Subject = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
+}) => theme.colors.default, props => isFlatMixin(props));
+const Subject = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
   displayName: "Card__Subject",
   componentId: "sc-1rpygc8-1"
 })(["color:", ";margin-bottom:0.25rem;text-align:center;"], ({
@@ -338,45 +352,51 @@ const Subject = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.wit
 }) => theme.colors.black);
 /* harmony default export */ __webpack_exports__["default"] = (props => {
   const {
-    subject
-  } = props;
-  return __jsx(Card, {
+    subject,
+    flat
+  } = props,
+        RemainingProps = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["subject", "flat"]);
+
+  return __jsx(Card, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, RemainingProps, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 40
     },
     __self: undefined
-  }, __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_2__["AnimatePresence"], {
+  }), __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_4__["AnimatePresence"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 42
     },
     __self: undefined
-  }, __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_2__["motion"].div, {
+  }, __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_4__["motion"].div, {
+    flat: flat,
     key: props.children,
     initial: {
-      opacity: 0,
-      x: 300
+      x: 300,
+      opacity: 0
     },
     animate: {
-      opacity: 1,
-      x: 0
+      x: 0,
+      opacity: 1
     },
     transition: {
-      duration: 0.5
+      duration: 0.5,
+      ease: 'easeInOut'
     },
     exit: {
+      x: -300,
       opacity: 0
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 43
     },
     __self: undefined
   }, __jsx(Subject, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 41
+      lineNumber: 51
     },
     __self: undefined
   }, subject), props.children)));
@@ -594,14 +614,25 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 
 /* harmony default export */ __webpack_exports__["default"] = (() => {
+  const {
+    0: username,
+    1: setUsername
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])('');
+  const {
+    0: password,
+    1: setPassword
+  } = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])('');
+
   async function login() {
+    const body = {
+      username,
+      password
+    };
+
     try {
       const response = await fetch('http://localhost:3000/api/post/login', {
         method: 'POST',
-        body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()({
-          username,
-          password
-        }),
+        body: _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default()(body),
         headers: {
           'Content-Type': 'application/json'
         }
@@ -618,40 +649,50 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     await next_router__WEBPACK_IMPORTED_MODULE_7___default.a.push('/register');
   }
 
-  const [username, password] = '';
+  function handleUsername(e) {
+    setUsername(e.target.value);
+  }
+
+  function handlePassword(e) {
+    setPassword(e.target.value);
+  }
+
   return __jsx(_layouts_CenterLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 44
     },
     __self: undefined
   }, __jsx(_components_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    flat: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 34
+      lineNumber: 45
     },
     __self: undefined
   }, __jsx(_components_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
     value: username,
+    onChange: handleUsername,
     label: "Username",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 35
+      lineNumber: 46
     },
     __self: undefined
   }), __jsx(_components_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
     value: password,
+    onChange: handlePassword,
     type: "password",
     label: "Password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 47
     },
     __self: undefined
   }), __jsx(_layouts_DualButtonGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 37
+      lineNumber: 48
     },
     __self: undefined
   }, __jsx(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -659,13 +700,13 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     block: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 38
+      lineNumber: 49
     },
     __self: undefined
   }, "Register"), __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 39
+      lineNumber: 50
     },
     __self: undefined
   }), __jsx(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -673,7 +714,7 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     block: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 51
     },
     __self: undefined
   }, "Login"))));

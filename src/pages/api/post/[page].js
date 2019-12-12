@@ -11,6 +11,7 @@ const page = (req, res) => {
 
 	page === 'login' ? doSomething() : res.end(Error);
 	function doSomething() {
+		console.log(req.body);
 		res.status(200).json({
 			'page': `${page}`,
 			'success': `true`

@@ -3,6 +3,9 @@ import App from 'next/app'
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const theme = {
+	style: {
+		box_shadow: '0 0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 0.0625rem 0.125rem rgba(0,0,0,0.24);'
+	},
 	colors: {
 		black: '#000',
 		button_disabled: 'rgba(0, 0, 0, 0.26)',

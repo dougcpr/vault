@@ -19,7 +19,7 @@ export default () => {
 	const [username, password, confirmPassword] = '';
 	return (
 		<CenterLayout>
-			<Card>
+			<Card flat>
 				<Input value={username} label="Username"/>
 				<Input value={password} type="password" label="Password"/>
 				<Input value={confirmPassword} type="password" label="Confirm Password"/>

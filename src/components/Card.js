@@ -1,11 +1,17 @@
-import React from 'react';
-import styled from 'styled-components'
+import React  from 'react';
+import styled, {css} from 'styled-components'
 import { motion, AnimatePresence } from "framer-motion";
+
+const isFlatMixin = (props) => {
+	const cardShadow = css`
+		box-shadow: ${({theme}) => {theme.style.box_shadow}}
+	`;
+	return props.flat ? cardShadow : null;
+};
 
 const Card = styled.div`
  border-radius: 0.1875rem;
  background-color: ${({ theme }) => theme.colors.white};
- box-shadow: 0 0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 0.0625rem 0.125rem rgba(0,0,0,0.24);
  box-sizing: border-box;
  color: ${({ theme }) => theme.colors.default};
  display: flex;
@@ -18,6 +24,8 @@ const Card = styled.div`
  transition: 1s ease-in-out;
  width: 100%;
  justify-content: space-around;
+ 
+	${(props) => isFlatMixin(props)};
 `;
 
 const Subject = styled.div`
@@ -27,16 +35,18 @@ const Subject = styled.div`
 `;
 
 export default (props) => {
-	const {subject} = props;
+	const {subject, flat, ...RemainingProps} = props;
 	return (
-			<Card>
+			<Card
+				{...RemainingProps}>
 				<AnimatePresence>
 					<motion.div
+						flat={flat}
 						key={props.children}
-						initial={{ opacity: 0, x: 300 }}
-						animate={{ opacity: 1, x: 0 }}
-						transition={{ duration: 0.5 }}
-						exit={{ opacity: 0 }}
+						initial={{ x: 300, opacity: 0 }}
+						animate={{ x: 0, opacity: 1 }}
+						transition={{ duration: 0.5, ease: 'easeInOut' }}
+						exit={{ x: -300,  opacity: 0}}
 					>
 						<Subject>{subject}</Subject>
 						{props.children}
