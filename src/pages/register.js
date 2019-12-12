@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 // layouts
 import CenterLayout from '../layouts/CenterLayout';
-import ButtonGrid from '../layouts/DualButtonGrid';
+import styled from 'styled-components'
 // components
 import Card from '../components/Card';
 import Input from '../components/Input';
@@ -10,24 +10,35 @@ import Button from '../components/Button';
 import Router from 'next/router'
 
 export default () => {
+	const BackLink = styled.div`
+		cursor: pointer;
+		font-weight: 500;
+		margin-top: 0.5rem;
+		text-align: end;
+		text-decoration: underline;
+	`;
 	async function back() {
 		await Router.push('/login')
 	}
 	async function register() {
 		await Router.push('/login');
 	}
-	const [username, password, confirmPassword] = '';
+	function handleUsername(e) {
+		setUsername(e.target.value);
+	}
+
+	function handlePassword(e) {
+		setPassword(e.target.value);
+	}
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
 	return (
 		<CenterLayout>
-			<Card flat>
-				<Input value={username} label="Username"/>
-				<Input value={password} type="password" label="Password"/>
-				<Input value={confirmPassword} type="password" label="Confirm Password"/>
-				<ButtonGrid>
-					<Button onClick={back} block>Back</Button>
-					<div/>
-					<Button onClick={register} block>Register</Button>
-				</ButtonGrid>
+			<Card>
+				<Input value={username} onChange={handleUsername} label="Username"/>
+				<Input value={password} onChange={handlePassword} type="password" label="Password"/>
+				<Button onClick={register} block>Register</Button>
+				<div><BackLink onClick={back}>Back</BackLink></div>
 			</Card>
 		</CenterLayout>
 	)

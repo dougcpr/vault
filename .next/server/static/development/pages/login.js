@@ -331,13 +331,13 @@ const isFlatMixin = props => {
   const cardShadow = Object(styled_components__WEBPACK_IMPORTED_MODULE_3__["css"])(["box-shadow:", ""], ({
     theme
   }) => theme.style.box_shadow);
-  return props.flat ? cardShadow : null;
+  return props.flat ? null : cardShadow;
 };
 
 const Card = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.withConfig({
   displayName: "Card",
   componentId: "sc-1rpygc8-0"
-})(["border-radius:0.1875rem;background-color:", ";box-sizing:border-box;color:", ";display:flex;flex-direction:column;margin:0;min-width:6.25rem;max-width:15.625rem;overflow:hidden;padding:0.75rem 1rem 0.75rem 0.875rem;transition:1s ease-in-out;width:100%;justify-content:space-around;", ";"], ({
+})(["border-radius:0.1875rem;background-color:", ";box-sizing:border-box;color:", ";display:flex;flex-direction:column;margin:0;min-width:6.25rem;max-width:15.625rem;overflow:hidden;padding:0.75rem 1rem 0.75rem 0.875rem;transition:1s ease-in-out;width:100%;justify-content:space-around;", ";@media (max-width:425px){width:100vw;height:100vh;max-height:100%;max-width:100%;padding:3.125rem;}@media (max-width:812px){height:70vh;box-shadow:none;}}"], ({
   theme
 }) => theme.colors.white, ({
   theme
@@ -355,20 +355,21 @@ const Subject = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.wit
   } = props,
         RemainingProps = Object(_babel_runtime_corejs2_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, ["subject", "flat"]);
 
-  return __jsx(Card, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, RemainingProps, {
+  return __jsx(Card, Object(_babel_runtime_corejs2_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+    flat: flat
+  }, RemainingProps, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 54
     },
     __self: undefined
   }), __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_4__["AnimatePresence"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 42
+      lineNumber: 57
     },
     __self: undefined
   }, __jsx(framer_motion__WEBPACK_IMPORTED_MODULE_4__["motion"].div, {
-    flat: flat,
     key: props.children,
     initial: {
       x: 300,
@@ -379,7 +380,7 @@ const Subject = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.wit
       opacity: 1
     },
     transition: {
-      duration: 0.5,
+      duration: 0.7,
       ease: 'easeInOut'
     },
     exit: {
@@ -388,13 +389,13 @@ const Subject = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div.wit
     },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 43
+      lineNumber: 58
     },
     __self: undefined
   }, __jsx(Subject, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 65
     },
     __self: undefined
   }, subject), props.children)));
@@ -548,39 +549,6 @@ const Center = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.with
 
 /***/ }),
 
-/***/ "./src/layouts/DualButtonGrid.js":
-/*!***************************************!*\
-  !*** ./src/layouts/DualButtonGrid.js ***!
-  \***************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/docooper/webdev/vault/src/layouts/DualButtonGrid.js";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
-
-
-const DualButtonGrid = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div.withConfig({
-  displayName: "DualButtonGrid",
-  componentId: "sc-15kk586-0"
-})(["display:grid;grid-template-columns:45% auto 45%;"]);
-/* harmony default export */ __webpack_exports__["default"] = (props => {
-  return __jsx(DualButtonGrid, {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 11
-    },
-    __self: undefined
-  }, props.children);
-});
-
-/***/ }),
-
 /***/ "./src/pages/login.js":
 /*!****************************!*\
   !*** ./src/pages/login.js ***!
@@ -594,8 +562,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_corejs2_core_js_json_stringify__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _layouts_CenterLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../layouts/CenterLayout */ "./src/layouts/CenterLayout.js");
-/* harmony import */ var _layouts_DualButtonGrid__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layouts/DualButtonGrid */ "./src/layouts/DualButtonGrid.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _layouts_CenterLayout__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../layouts/CenterLayout */ "./src/layouts/CenterLayout.js");
 /* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/Card */ "./src/components/Card.js");
 /* harmony import */ var _components_Input__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Input */ "./src/components/Input.js");
 /* harmony import */ var _components_Button__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Button */ "./src/components/Button.js");
@@ -655,17 +624,24 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     setPassword(e.target.value);
   }
 
-  return __jsx(_layouts_CenterLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  const Registration = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
+		margin-top: 0.5rem;
+		text-align: end;
+	`;
+  const RegisterLink = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.span`
+		cursor: pointer;
+		text-decoration: underline;
+	`;
+  return __jsx(_layouts_CenterLayout__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 44
+      lineNumber: 54
     },
     __self: undefined
   }, __jsx(_components_Card__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    flat: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 55
     },
     __self: undefined
   }, __jsx(_components_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -674,37 +650,18 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     label: "Username",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 56
     },
     __self: undefined
   }), __jsx(_components_Input__WEBPACK_IMPORTED_MODULE_5__["default"], {
     value: password,
     onChange: handlePassword,
+    disabled: true,
     type: "password",
     label: "Password",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
-    },
-    __self: undefined
-  }), __jsx(_layouts_DualButtonGrid__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 48
-    },
-    __self: undefined
-  }, __jsx(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    onClick: register,
-    block: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 49
-    },
-    __self: undefined
-  }, "Register"), __jsx("div", {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 57
     },
     __self: undefined
   }), __jsx(_components_Button__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -712,10 +669,23 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
     block: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 51
+      lineNumber: 58
     },
     __self: undefined
-  }, "Login"))));
+  }, "Login"), __jsx(Registration, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59
+    },
+    __self: undefined
+  }, "Register your character ", __jsx(RegisterLink, {
+    onClick: register,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59
+    },
+    __self: undefined
+  }, "here"), ".")));
 });
 
 /***/ }),

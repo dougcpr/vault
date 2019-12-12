@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
+import styled from 'styled-components'
 import CenterLayout from '../layouts/CenterLayout';
-import ButtonGrid from '../layouts/DualButtonGrid';
 import Card from '../components/Card';
 import Input from '../components/Input';
 import Button from '../components/Button';
@@ -40,16 +40,23 @@ export default () => {
 		setPassword(e.target.value);
 	}
 
+	const Registration = styled.div`
+		margin-top: 0.5rem;
+		text-align: end;
+	`;
+
+	const RegisterLink = styled.span`
+		cursor: pointer;
+		text-decoration: underline;
+	`;
+
 	return (
 		<CenterLayout>
-			<Card flat>
+			<Card>
 				<Input value={username} onChange={handleUsername} label="Username"/>
-				<Input value={password}  onChange={handlePassword} type="password" label="Password"/>
-				<ButtonGrid>
-					<Button onClick={register} block>Register</Button>
-					<div/>
-					<Button onClick={login} block>Login</Button>
-				</ButtonGrid>
+				<Input value={password}  onChange={handlePassword} disabled={true} type="password" label="Password"/>
+				<Button onClick={login} block>Login</Button>
+				<Registration>Register your character <RegisterLink onClick={register}>here</RegisterLink>.</Registration>
 			</Card>
 		</CenterLayout>
 	)

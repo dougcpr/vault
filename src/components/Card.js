@@ -6,7 +6,7 @@ const isFlatMixin = (props) => {
 	const cardShadow = css`
 		box-shadow: ${({ theme }) => theme.style.box_shadow}
 	`;
-	return props.flat ? cardShadow : null;
+	return props.flat ? null : cardShadow;
 };
 
 const Card = styled.div`
@@ -26,6 +26,20 @@ const Card = styled.div`
  justify-content: space-around;
  
 	${(props) => isFlatMixin(props)};
+	
+	@media (max-width : 425px) {
+    width: 100vw;
+    height: 100vh;
+    max-height: 100%;
+    max-width: 100%;
+    padding: 3.125rem;
+  }
+
+  @media (max-width: 812px) {
+    height: 70vh;
+    box-shadow: none;
+  }
+}
 `;
 
 const Subject = styled.div`
@@ -38,14 +52,14 @@ export default (props) => {
 	const {subject, flat, ...RemainingProps} = props;
 	return (
 			<Card
+				flat={flat}
 				{...RemainingProps}>
 				<AnimatePresence>
 					<motion.div
-						flat={flat}
 						key={props.children}
 						initial={{ x: 300, opacity: 0 }}
 						animate={{ x: 0, opacity: 1 }}
-						transition={{ duration: 0.5, ease: 'easeInOut' }}
+						transition={{ duration: 0.7, ease: 'easeInOut' }}
 						exit={{ x: -300,  opacity: 0}}
 					>
 						<Subject>{subject}</Subject>
