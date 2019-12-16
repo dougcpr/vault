@@ -1,6 +1,6 @@
 # local files
 /node_modules
 # next files
-#/.next/
+/.next/
 # webstorm files
 ./.idea
