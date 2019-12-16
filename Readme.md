@@ -5,11 +5,10 @@ Steps to Run on Local Machine
 3. npm next
 
 Frameworks Used:
-Next js
-Framer Motion
+- Next js
+- Framer Motion
+
 
 To Do:
-Setup PostgresQL DB
-Validation Log In
-Validation Against Existing UserNames for Registration
-Dashboard Wire-Frame
+- MongoDB Boilerplate
+- Dashboard Wire-Frame
