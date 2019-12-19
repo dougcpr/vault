@@ -18,10 +18,10 @@ export default () => {
 		text-decoration: underline;
 	`;
 	async function back() {
-		await Router.push('/login')
+		await Router.push('/')
 	}
 	async function register() {
-		await Router.push('/login');
+		await Router.push('/');
 	}
 	function handleUsername(e) {
 		setUsername(e.target.value);
@@ -34,7 +34,7 @@ export default () => {
 	const [password, setPassword] = useState('');
 	return (
 		<CenterLayout>
-			<Card>
+			<Card animate>
 				<Input value={username} onChange={handleUsername} label="Username"/>
 				<Input value={password} onChange={handlePassword} type="password" label="Password"/>
 				<Button onClick={register} block>Register</Button>

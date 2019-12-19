@@ -13,7 +13,7 @@ const theme = {
 		button_height: '2.25rem',
 		default: 'rgba(0,0,0,.3)',
 		disabled: '#f5f5f5',
-		fontFamily: 'Roboto, sans-serif',
+		fontFamily: 'Roboto',
 		green: '#50bc91',
 		input_border_hover: 'rgba(0,0,0,.87)',
 		red: '#bc5b50',
@@ -24,8 +24,6 @@ const theme = {
 };
 
 const GlobalStyle = createGlobalStyle`
-	@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
   body {
     padding: 0;
     margin: 0;

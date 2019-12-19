@@ -1,4 +1,4 @@
-import Document from 'next/document'
+import Document, {Head, Main, NextScript} from 'next/document';
 import { ServerStyleSheet } from 'styled-components'
 import React from 'react';
 
@@ -12,7 +12,6 @@ export default class MyDocument extends Document {
 				originalRenderPage({
 					enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
 				});
-
 			const initialProps = await Document.getInitialProps(ctx);
 			return {
 				...initialProps,
@@ -26,5 +25,26 @@ export default class MyDocument extends Document {
 		} finally {
 			sheet.seal()
 		}
+	}
+	render () {
+		const noScriptMessage = `
+      Enable JavaScript.
+    `;
+
+		return (
+			<html>
+			<Head>
+				<meta name='viewport' content='initial-scale=1.0, width=device-width'/>
+				<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
+			</Head>
+			<body>
+			<noscript>
+				<strong>{noScriptMessage}</strong>
+			</noscript>
+			<Main />
+				<NextScript/>
+			</body>
+			</html>
+		);
 	}
 }
