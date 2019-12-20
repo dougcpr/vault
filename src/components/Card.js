@@ -9,11 +9,25 @@ const isFlatMixin = (props) => {
 	return props.flat ? null : cardShadow;
 };
 
+const backgroundColor = (props) => {
+	const cardBackground = css`
+		background-color: ${props.backgroundColor};
+	`;
+	return props.backgroundColor ? cardBackground : null;
+};
+
+const fontColor = (props) => {
+	const color = css`
+		color: ${props.color};
+	`;
+	return props.color ? color : null;
+};
+
 const Card = styled.div`
  border-radius: 0.1875rem;
- background-color: ${props => props.backgroundColor};
+ background-color:  ${({ theme }) => theme.colors.white};
  box-sizing: border-box;
- color: ${({ theme }) => theme.colors.default};
+ color: ${({ theme }) => theme.colors.black};
  display: flex;
  flex-direction: column;
  margin: 0;
@@ -25,6 +39,8 @@ const Card = styled.div`
  width: 100%;
  justify-content: space-around;
  ${(props) => isFlatMixin(props)};
+ ${(props) => backgroundColor(props)};
+ ${(props) => fontColor(props)};
 	
 	@media (max-width : 425px) {
     width: 100vw;
@@ -41,18 +57,18 @@ const Card = styled.div`
 }
 `;
 
-const Subject = styled.div`
-  color: ${({ theme }) => theme.colors.black};
-  margin-bottom: 0.25rem;
-  text-align: center;
-`;
-
 export default (props) => {
-	const {subject, flat, backgroundColor, animate, ...RemainingProps} = props;
+	const {
+		flat,
+		backgroundColor,
+		color,
+		animate,
+		...RemainingProps} = props;
 	return (
 			<Card
 				flat={flat}
 				backgroundColor={backgroundColor}
+				color={color}
 				{...RemainingProps}>
 				<AnimatePresence initial={animate === true} >
 					<motion.div
@@ -62,7 +78,6 @@ export default (props) => {
 						transition={{ duration: 0.7, ease: 'easeInOut' }}
 						exit={{ x: -300,  opacity: 0}}
 					>
-						<Subject>{subject}</Subject>
 						{props.children}
 					</motion.div>
 				</AnimatePresence>

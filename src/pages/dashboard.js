@@ -1,19 +1,35 @@
 import React from 'react'
-import css from 'styled-components'
+import styled from 'styled-components'
+import Sidebar from '../components/Sidebar';
 import Card from '../components/Card'
-import GridThreeCardLayout from '../layouts/GridThreeCardLayout';
+import GridLayout from '../layouts/GridLayout';
 
-const Dashboard = css.div``;
+const DashboardContainer = styled.div`
+	background-color: ${({ theme }) => theme.colors.defaultBackgroundColor};
+	display: flex;
+	height: 100vh;
+`;
+const Dashboard = styled.div`
+	margin: 5rem;
+	width: 100%;
+	
+	@media (max-width : 425px) {
+		margin: 0;
+		flex-direction: row;
+	}
+`;
 export default () => {
 	return (
-		<Dashboard>
-			<GridThreeCardLayout>
-				<Card backgroundColor='#BBDEFB' subject='Encounters'/>
-				<Card backgroundColor='#80CBC4' subject='Players'/>
-				<Card backgroundColor='#B39DDB' subject='Quests'/>
-			</GridThreeCardLayout>
-			<GridThreeCardLayout>
-			</GridThreeCardLayout>
-		</Dashboard>
+		<DashboardContainer>
+			<Sidebar />
+			<Dashboard>
+				<GridLayout>
+					<Card>Hello Card</Card>
+					<Card>Hello Card</Card>
+					<Card>Hello Card</Card>
+					<Card>Hello Card</Card>
+				</GridLayout>
+			</Dashboard>
+		</DashboardContainer>
 	)
 }
