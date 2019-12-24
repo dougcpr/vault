@@ -27,6 +27,7 @@ const updateBorder = ({dropdown}) => {
 
 const DropdownContainer = styled.div`
   background-color:  ${({ theme }) => theme.colors.white};
+	cursor: pointer;
   margin-bottom: 0.25rem;
   height: 2rem;
   width: 100%;
@@ -43,18 +44,35 @@ const Arrow = styled.span`
 	${(props) => rotate(props)};
 `;
 
-const DropdownContent = styled.div`
+const DropdownContentContainer = styled.div`
   border: 0.0625rem solid ${({ theme }) => theme.colors.default};
   border-radius: 0 0 0.5rem 0.5rem;
   color: ${({ theme }) => theme.colors.default};
   box-sizing: border-box;
   display: none;
   font-size: 1rem;
+  max-height: 10rem;
   outline: none;
   overflow-y: scroll;
+  width: 100%;
+	${(props) => toggle(props)};
+`;
+
+const DropdownItem = styled.div`
+  border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.default};
+  color: ${({ theme }) => theme.colors.default};
+  box-sizing: border-box;
+  font-size: 1rem;
+  outline: none;
   padding: 0.75rem 1rem 0.875rem;
   width: 100%;
 	${(props) => toggle(props)};
+	:hover {
+		color: ${({ theme }) => theme.colors.green};
+  }
+	:last-child {
+	border-bottom: 0;
+	}
 `;
 
 const Dropdown = styled.div`
@@ -70,22 +88,24 @@ const Dropdown = styled.div`
   position: relative;
   width: 100%;
 	${(props) => updateBorder(props)};
+	
+	:hover {
+    border-color: ${({ theme }) => theme.colors.black};
+	}
 `;
 
 export default (props) => {
 	function updateDropdownValue(e) {
-		const value = e.target.value;
+		const value = e.target.innerHTML;
 		setDropdownValue(value);
+		toggleDropdown(!dropdown)
 	}
 	function toggle() {
 		toggleDropdown(!dropdown)
 	}
-	const {type, value = 'Select a Value', options = ['value 1', 'value 2'], ...RemainingProps} = props;
-	const [dropdownValue, setDropdownValue] = useState(value);
+	const {type, label = 'Default Dropdown', items = ['Default Value 1', 'Default Value 2'], ...RemainingProps} = props;
+	const [dropdownValue, setDropdownValue] = useState(label);
 	const [dropdown, toggleDropdown] = useState(false);
-	{options.map(option => {
-		console.log(option);
-	})}
 	return (
 		<DropdownContainer>
 			<Dropdown
@@ -97,11 +117,19 @@ export default (props) => {
 				<Arrow
 					dropdown={dropdown} />
 			</Dropdown>
-			<DropdownContent
-				dropdown={dropdown}
-				onClick={(event) => {updateDropdownValue(event)}}
-			>
-			</DropdownContent>
+				<DropdownContentContainer
+					dropdown={dropdown}
+					onClick={(event) => {updateDropdownValue(event)}}
+				>
+					{items.map((item, i) => {
+						return (
+							<DropdownItem
+								key={i}
+							>{item}
+							</DropdownItem>
+						)
+					})}
+				</DropdownContentContainer>
 		</DropdownContainer>
 	)
 }
