@@ -20,14 +20,15 @@ const Dashboard = styled.div`
 	}
 `;
 export default () => {
-	const classes = ['Barbarian', 'Cleric', 'Druid', 'Rouge', 'Wizard'];
+	const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
 	return (
 		<DashboardContainer>
 			<Dashboard>
 				<GridLayout>
 					<Card />
 					<div>
-						<Dropdown label='Select a Class' items={classes} />
+						<Dropdown label='Select an Option' items={options} />
+						<Dropdown />
 					</div>
 					<div>
 						<Input label='Player Name'/>

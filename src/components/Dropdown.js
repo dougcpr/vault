@@ -4,7 +4,7 @@ import styled, {css} from 'styled-components';
 const toggle = ({dropdown}) => {
 	const openDropdown = css`
 		border-top: 0;
-		display: block;
+		display: inline-block;
 	`;
 	return dropdown ? openDropdown : null;
 };
@@ -26,10 +26,9 @@ const updateBorder = ({dropdown}) => {
 };
 
 const DropdownContainer = styled.div`
-  background-color:  ${({ theme }) => theme.colors.white};
 	cursor: pointer;
   margin-bottom: 0.25rem;
-  height: 2rem;
+  max-width: 16rem;
   width: 100%;
 `;
 
@@ -45,6 +44,7 @@ const Arrow = styled.span`
 `;
 
 const DropdownContentContainer = styled.div`
+	background: ${({ theme }) => theme.colors.white};
   border: 0.0625rem solid ${({ theme }) => theme.colors.default};
   border-radius: 0 0 0.5rem 0.5rem;
   color: ${({ theme }) => theme.colors.default};
@@ -52,14 +52,20 @@ const DropdownContentContainer = styled.div`
   display: none;
   font-size: 1rem;
   max-height: 10rem;
+  max-width: 16rem;
   outline: none;
   overflow-y: scroll;
+  position: absolute;
   width: 100%;
 	${(props) => toggle(props)};
+	z-index: 2;
 `;
 
 const DropdownItem = styled.div`
-  border-bottom: 0.0625rem solid ${({ theme }) => theme.colors.default};
+	background: ${({ theme }) => theme.colors.white};
+	border-width: 0 0 0.0625rem 0;
+	border-style: solid;
+	border-color: ${({ theme }) => theme.colors.default};
   color: ${({ theme }) => theme.colors.default};
   box-sizing: border-box;
   font-size: 1rem;
@@ -70,8 +76,11 @@ const DropdownItem = styled.div`
 	:hover {
 		color: ${({ theme }) => theme.colors.green};
   }
+	:first-child {
+		border-top: 0;
+	}
 	:last-child {
-	border-bottom: 0;
+		border: 0;
 	}
 `;
 
