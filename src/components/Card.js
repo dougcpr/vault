@@ -28,11 +28,8 @@ const Card = styled.div`
  background-color:  ${({ theme }) => theme.colors.white};
  box-sizing: border-box;
  color: ${({ theme }) => theme.colors.black};
- display: flex;
- flex-direction: column;
  margin: 0;
  min-width: 6.25rem;
- max-width: 15.625rem;
  overflow: hidden;
  padding: 0.75rem 1rem 0.75rem 0.875rem;
  transition: 1s ease-in-out;

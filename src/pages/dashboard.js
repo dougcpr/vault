@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Sidebar from '../components/Sidebar';
-import Card from '../components/Card'
+import Card from '../components/Card';
+import Input from '../components/Input'
+import Dropdown from '../components/Dropdown';
 import GridLayout from '../layouts/GridLayout';
 
 const DashboardContainer = styled.div`
@@ -21,13 +22,15 @@ const Dashboard = styled.div`
 export default () => {
 	return (
 		<DashboardContainer>
-			<Sidebar />
 			<Dashboard>
 				<GridLayout>
-					<Card>Hello Card</Card>
-					<Card>Hello Card</Card>
-					<Card>Hello Card</Card>
-					<Card>Hello Card</Card>
+					<Card />
+					<Card><Dropdown /></Card>
+					<Card>
+						<Input label='Player Name'/>
+						<Input label='Race'/>
+						<Input label='Class'/>
+					</Card>
 				</GridLayout>
 			</Dashboard>
 		</DashboardContainer>

@@ -20,7 +20,6 @@ const containsTextMixin = ({containsText}) => {
 
 const InputContainer = styled.div`
   background-color:  ${({ theme }) => theme.colors.white};
-  height: 3.5625rem;
   width: 100%;
 `;
 

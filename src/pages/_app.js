@@ -12,7 +12,7 @@ const theme = {
 		button_disabled_bg: 'rgba(0, 0, 0, 0.12)',
 		button_height: '2.25rem',
 		default: 'rgba(0,0,0,.3)',
-		defaultBackgroundColor: '#ECEFF1',
+		defaultBackgroundColor: 'white',
 		disabled: '#f5f5f5',
 		fontFamily: 'Roboto',
 		green: '#50bc91',

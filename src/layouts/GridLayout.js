@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Grid = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 50% 1fr 1fr;
 	grid-column-gap: 1rem;
 	grid-row-gap: 1rem;
 `;
