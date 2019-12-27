@@ -11,9 +11,9 @@ const toggle = ({dropdown}) => {
 
 const rotate = ({dropdown}) => {
 	const rotateArrow = css`
-	transform: rotate(225deg);
-	transition: 0.5s;
-	margin-top: 5px;
+		transform: rotate(225deg);
+		transition: 0.5s;
+		margin-top: 5px;
 	`;
 	return dropdown ? rotateArrow : null;
 };
@@ -28,8 +28,12 @@ const updateBorder = ({dropdown}) => {
 const DropdownContainer = styled.div`
 	cursor: pointer;
   margin-bottom: 0.25rem;
+  position: relative;
   max-width: 16rem;
   width: 100%;
+  @media (max-width : 425px) {
+		max-width: 100%;
+	}
 `;
 
 const Arrow = styled.span`
@@ -52,13 +56,16 @@ const DropdownContentContainer = styled.div`
   display: none;
   font-size: 1rem;
   max-height: 10rem;
-  max-width: 16rem;
+	// max-width: 16rem;
   outline: none;
   overflow-y: scroll;
   position: absolute;
   width: 100%;
 	${(props) => toggle(props)};
 	z-index: 2;
+		@media (max-width : 425px) {
+			max-width: 100%;
+		}
 `;
 
 const DropdownItem = styled.div`

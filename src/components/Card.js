@@ -30,7 +30,6 @@ const Card = styled.div`
  color: ${({ theme }) => theme.colors.black};
  margin: 0;
  min-width: 6.25rem;
- overflow: hidden;
  padding: 0.75rem 1rem 0.75rem 0.875rem;
  transition: 1s ease-in-out;
  width: 100%;

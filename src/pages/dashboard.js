@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import Button from '../components/Button';
 import Card from '../components/Card';
 import Input from '../components/Input'
 import Dropdown from '../components/Dropdown';
 import GridLayout from '../layouts/GridLayout';
+import Center from '../layouts/CenterLayout';
 
 const DashboardContainer = styled.div`
 	background-color: ${({ theme }) => theme.colors.defaultBackgroundColor};
@@ -20,22 +22,18 @@ const Dashboard = styled.div`
 	}
 `;
 export default () => {
-	const options = ['Option 1', 'Option 2', 'Option 3', 'Option 4', 'Option 5'];
+	const categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'];
 	return (
 		<DashboardContainer>
 			<Dashboard>
-				<GridLayout>
-					<Card />
-					<div>
-						<Dropdown label='Select an Option' items={options} />
-						<Dropdown />
-					</div>
-					<div>
-						<Input label='Player Name'/>
-						<Input label='Race'/>
-						<Input label='Class'/>
-					</div>
-				</GridLayout>
+					<Card>
+						<GridLayout>
+							<Dropdown label='Select a Category' items={categories} />
+							<Input label='Item Name'/>
+							<Input label='Location'/>
+							<Button block>+</Button>
+						</GridLayout>
+					</Card>
 			</Dashboard>
 		</DashboardContainer>
 	)

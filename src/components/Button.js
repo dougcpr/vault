@@ -17,7 +17,7 @@ const Button = styled.button`
   font-size: ${({ theme }) => theme.colors.font_medium};
   font-weight: 500;
   display: block;
-  max-height: 2.25rem;
+  max-height: 2.875rem;
   min-width: 6.25rem;
   max-width: 9.375rem;
   outline: none;
