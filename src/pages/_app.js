@@ -14,7 +14,7 @@ const theme = {
 		default: 'rgba(0,0,0,.3)',
 		defaultBackgroundColor: 'white',
 		disabled: '#f5f5f5',
-		fontFamily: 'Roboto',
+		fontFamily: 'Roboto, sans-serif',
 		green: '#50bc91',
 		input_border_hover: 'rgba(0,0,0,.87)',
 		red: '#bc5b50',

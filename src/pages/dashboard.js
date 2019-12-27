@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Button from '../components/Button';
-import Card from '../components/Card';
 import Input from '../components/Input'
 import Dropdown from '../components/Dropdown';
 import GridLayout from '../layouts/GridLayout';
-import Center from '../layouts/CenterLayout';
+import Table from '../components/Table/Table';
+import DashboardLayout from '../layouts/DashboardLayout';
 
 const DashboardContainer = styled.div`
 	background-color: ${({ theme }) => theme.colors.defaultBackgroundColor};
@@ -22,18 +22,34 @@ const Dashboard = styled.div`
 	}
 `;
 export default () => {
+	function addItem() {
+		console.log(category, itemName, location);
+	}
+	function handleName(e) {
+		setItemName(e.target.value);
+	}
+	function handleLocation(e) {
+		setLocation(e.target.value);
+	}
+	function handleCategory(e) {
+		console.log(e.target.value);
+	}
+	const [itemName, setItemName] = useState('');
+	const [location, setLocation] = useState('');
+	const [category] = useState('');
 	const categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'];
 	return (
 		<DashboardContainer>
 			<Dashboard>
-					<Card>
-						<GridLayout>
-							<Dropdown label='Select a Category' items={categories} />
-							<Input label='Item Name'/>
-							<Input label='Location'/>
-							<Button block>+</Button>
-						</GridLayout>
-					</Card>
+				<DashboardLayout>
+					<GridLayout>
+						<Dropdown onChange={handleCategory}  label='Select a Category' items={categories} />
+						<Input value={itemName}  onChange={handleName}  label='Item Name'/>
+						<Input value={location} onChange={handleLocation}  label='Location'/>
+						<Button onClick={addItem} block>Add Item</Button>
+					</GridLayout>
+					<Table />
+				</DashboardLayout>
 			</Dashboard>
 		</DashboardContainer>
 	)
