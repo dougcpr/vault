@@ -31,6 +31,7 @@ const Card = styled.div`
  margin: 0;
  min-width: 6.25rem;
  padding: 0.75rem 1rem 0.75rem 0.875rem;
+ overflow: hidden;
  transition: 1s ease-in-out;
  width: 100%;
  justify-content: space-around;

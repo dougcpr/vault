@@ -51,7 +51,7 @@ const DropdownContentContainer = styled.div`
 	background: ${({ theme }) => theme.colors.white};
   border: 0.0625rem solid ${({ theme }) => theme.colors.default};
   border-radius: 0 0 0.5rem 0.5rem;
-  color: ${({ theme }) => theme.colors.default};
+  color: ${({ theme }) => theme.colors.black};
   box-sizing: border-box;
   display: none;
   font-size: 1rem;
@@ -73,7 +73,7 @@ const DropdownItem = styled.div`
 	border-width: 0 0 0.0625rem 0;
 	border-style: solid;
 	border-color: ${({ theme }) => theme.colors.default};
-  color: ${({ theme }) => theme.colors.default};
+  color: ${({ theme }) => theme.colors.black};
   box-sizing: border-box;
   font-size: 1rem;
   outline: none;
@@ -94,7 +94,7 @@ const DropdownItem = styled.div`
 const Dropdown = styled.div`
   border: 0.0625rem solid ${({ theme }) => theme.colors.default};
   border-radius: 0.5rem;
-  color: ${({ theme }) => theme.colors.default};
+  color: ${({ theme }) => theme.colors.black};
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
@@ -111,15 +111,15 @@ const Dropdown = styled.div`
 `;
 
 export default (props) => {
-	function updateDropdownValue(e) {
-		const value = e.target.innerHTML;
+	function updateDropdownValue(value) {
 		setDropdownValue(value);
-		toggleDropdown(!dropdown)
+		toggleDropdown(!dropdown);
+		onSelected(value);
 	}
 	function toggle() {
 		toggleDropdown(!dropdown)
 	}
-	const {type, label = 'Default Dropdown', items = ['Default Value 1', 'Default Value 2'], ...RemainingProps} = props;
+	const {type, onSelected, label = 'Default Dropdown', items = ['Default Value 1', 'Default Value 2'], ...RemainingProps} = props;
 	const [dropdownValue, setDropdownValue] = useState(label);
 	const [dropdown, toggleDropdown] = useState(false);
 	return (
@@ -135,12 +135,12 @@ export default (props) => {
 			</Dropdown>
 				<DropdownContentContainer
 					dropdown={dropdown}
-					onClick={(event) => {updateDropdownValue(event)}}
 				>
 					{items.map((item, i) => {
 						return (
 							<DropdownItem
 								key={i}
+								onClick={() => updateDropdownValue(item)}
 							>{item}
 							</DropdownItem>
 						)

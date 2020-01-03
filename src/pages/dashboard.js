@@ -23,29 +23,22 @@ const Dashboard = styled.div`
 `;
 export default () => {
 	function addItem() {
+
 		console.log(category, itemName, location);
-	}
-	function handleName(e) {
-		setItemName(e.target.value);
-	}
-	function handleLocation(e) {
-		setLocation(e.target.value);
-	}
-	function handleCategory(e) {
-		console.log(e.target.value);
 	}
 	const [itemName, setItemName] = useState('');
 	const [location, setLocation] = useState('');
-	const [category] = useState('');
+	const [category, setCategory] = useState('');
 	const categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'];
+	const locations = ['Location 1', 'Location 2', 'Location 3', 'Location 4', 'Location 5'];
 	return (
 		<DashboardContainer>
 			<Dashboard>
 				<DashboardLayout>
 					<GridLayout>
-						<Dropdown onChange={handleCategory}  label='Select a Category' items={categories} />
-						<Input value={itemName}  onChange={handleName}  label='Item Name'/>
-						<Input value={location} onChange={handleLocation}  label='Location'/>
+						<Dropdown onSelected={(value) => {setCategory(value)}} label='Select a Category' items={categories}/>
+						<Dropdown value={location} onSelected={(value) => {setLocation(value)}} items={locations} label='Select a Location'/>
+						<Input value={itemName}  onChange={(e) => {setItemName(e.target.value)}}  label='Item Name'/>
 						<Button onClick={addItem} block>Add Item</Button>
 					</GridLayout>
 					<Table />

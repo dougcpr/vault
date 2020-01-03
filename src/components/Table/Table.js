@@ -28,11 +28,13 @@ export default (props) => {
 				return (
 					<Row key={i}>
 						{row.map((element, i) => {
-								return (
+							return (
+								// <Cell>
 									<TextElement key={i}>
 										{element.value}
 									</TextElement>
-								)
+								// </Cell>
+							)
 						})}
 					</Row>)
 			})}
