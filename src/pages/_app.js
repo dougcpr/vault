@@ -4,9 +4,22 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 const theme = {
 	style: {
-		box_shadow: '0 0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 0.0625rem 0.125rem rgba(0,0,0,0.24);'
+		box_shadow: [
+			'0 0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 0.0625rem 0.125rem rgba(0,0,0,0.24);',
+			`0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);`
+		],
+		borderRadius: [
+			'0',
+			'1rem'
+		],
+		padding: [
+			'0',
+			'0.75rem 1rem 0.75rem 0.875rem',
+			'0.75rem 1rem 0.75rem 0'
+		]
 	},
 	colors: {
+		background_color_nav: '#347DDB',
 		black: '#000',
 		button_disabled: 'rgba(0, 0, 0, 0.26)',
 		button_disabled_bg: 'rgba(0, 0, 0, 0.12)',
@@ -16,8 +29,9 @@ const theme = {
 		disabled: '#f5f5f5',
 		fontFamily: 'Roboto, sans-serif',
 		green: '#50bc91',
+		blue: '#60CDFF',
 		input_border_hover: 'rgba(0,0,0,.87)',
-		red: '#bc5b50',
+		red: '#FF6260',
 		white: '#fff',
 		font_medium: '1rem',
 		width_medium: '12.5rem'

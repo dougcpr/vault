@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const isFlatMixin = (props) => {
 	const cardShadow = css`
-		box-shadow: ${({ theme }) => theme.style.box_shadow}
+		box-shadow: ${({ theme }) => theme.style.box_shadow[0]}
 	`;
 	return props.flat ? null : cardShadow;
 };
@@ -16,11 +16,32 @@ const backgroundColor = (props) => {
 	return props.backgroundColor ? cardBackground : null;
 };
 
+const boxShadow = (props) => {
+	const defaultBoxShadow = css`
+		box-shadow: ${({ theme }) => theme.style.box_shadow[props.boxShadow]};
+	`;
+	return props.boxShadow > 0 ? defaultBoxShadow : null;
+};
+
+const updateBorderRadius = (props) => {
+	const defaultBorderRadius = css`
+		border-radius: ${({ theme }) => theme.style.borderRadius[props.borderRadius]};
+	`;
+	return props.borderRadius ? defaultBorderRadius : null;
+};
+
 const fontColor = (props) => {
 	const color = css`
 		color: ${props.color};
 	`;
 	return props.color ? color : null;
+};
+
+const removePadding = (props) => {
+	const p = css`
+		padding: ${({theme}) => theme.style.padding[0]};
+	`;
+	return props.padding ? null : p;
 };
 
 const Card = styled.div`
@@ -30,14 +51,17 @@ const Card = styled.div`
  color: ${({ theme }) => theme.colors.black};
  margin: 0;
  min-width: 6.25rem;
- padding: 0.75rem 1rem 0.75rem 0.875rem;
+ padding: ${({ theme }) => theme.style.padding[1]};
  overflow: hidden;
  transition: 1s ease-in-out;
  width: 100%;
  justify-content: space-around;
  ${(props) => isFlatMixin(props)};
+ ${(props) => boxShadow(props)};
  ${(props) => backgroundColor(props)};
+ ${(props) => updateBorderRadius(props)};
  ${(props) => fontColor(props)};
+ ${(props) => removePadding(props)};
 	
 	@media (max-width : 425px) {
     width: 100vw;
@@ -56,16 +80,22 @@ const Card = styled.div`
 
 export default (props) => {
 	const {
+		boxShadow,
+		borderRadius,
 		flat,
 		backgroundColor,
 		color,
 		animate,
+		padding,
 		...RemainingProps} = props;
 	return (
 			<Card
+				boxShadow={boxShadow}
+				borderRadius={borderRadius}
 				flat={flat}
 				backgroundColor={backgroundColor}
 				color={color}
+				padding={padding}
 				{...RemainingProps}>
 				<AnimatePresence initial={animate === true} >
 					<motion.div

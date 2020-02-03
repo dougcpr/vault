@@ -1,49 +1,78 @@
-import React, { useState } from 'react'
+import React  from 'react'
+import NavBar from '../components/NavBar';
+import CenterLayout from '../layouts/CenterLayout';
+import Card from '../components/Card';
 import styled from 'styled-components'
-import Button from '../components/Button';
-import Input from '../components/Input'
-import Dropdown from '../components/Dropdown';
-import GridLayout from '../layouts/GridLayout';
-import Table from '../components/Table/Table';
-import DashboardLayout from '../layouts/DashboardLayout';
 
-const DashboardContainer = styled.div`
-	background-color: ${({ theme }) => theme.colors.defaultBackgroundColor};
-	display: flex;
-	height: 100vh;
+const DashboardLayout = styled.div`
+	column-gap: 1rem;
+	display: grid;
+	grid-template-columns: 6.25rem 1fr 20%;
+	width: 80vw;
+	height: 80vh;
 `;
-const Dashboard = styled.div`
-	margin: 5rem;
-	width: 100%;
-	
-	@media (max-width : 425px) {
-		margin: 0;
-		flex-direction: row;
-	}
+
+const MainLayout = styled.div`
+	display: grid;
+	column-gap: 1rem;
+	row-gap: 1rem;
+	padding: ${({ theme }) => theme.style.padding[1]};
 `;
+
+const Header = styled.div`
+	display: grid;
+	grid-template-columns: 1fr;
+`;
+
+const GraphCardLayout = styled.div`
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	column-gap: 1rem;
+`;
+
+const Footer = styled.div`
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 1rem;
+`;
+
+const CalendarLayout = styled.div`
+	padding: ${({theme}) => theme.style.padding[2]};
+	display: grid;
+  row-gap: 1rem;
+  grid-template-rows: 1fr 2fr 1fr;
+`;
+
 export default () => {
-	function addItem() {
-
-		console.log(category, itemName, location);
-	}
-	const [itemName, setItemName] = useState('');
-	const [location, setLocation] = useState('');
-	const [category, setCategory] = useState('');
-	const categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5'];
-	const locations = ['Location 1', 'Location 2', 'Location 3', 'Location 4', 'Location 5'];
 	return (
-		<DashboardContainer>
-			<Dashboard>
-				<DashboardLayout>
-					<GridLayout>
-						<Dropdown onSelected={(value) => {setCategory(value)}} label='Select a Category' items={categories}/>
-						<Dropdown value={location} onSelected={(value) => {setLocation(value)}} items={locations} label='Select a Location'/>
-						<Input value={itemName}  onChange={(e) => {setItemName(e.target.value)}}  label='Item Name'/>
-						<Button onClick={addItem} block>Add Item</Button>
-					</GridLayout>
-					<Table />
-				</DashboardLayout>
-			</Dashboard>
-		</DashboardContainer>
+			<CenterLayout>
+				<Card borderRadius={1} boxShadow={1} padding={false}>
+					<DashboardLayout>
+						<NavBar/>
+						<MainLayout>
+							<Header>
+								<Card
+									borderRadius={1}
+									backgroundColor={({ theme }) => theme.colors.green}
+								/>
+							</Header>
+							<GraphCardLayout>
+								<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
+								<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.green}/>
+								<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
+							</GraphCardLayout>
+							<Footer>
+								<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
+								<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.green}/>
+							</Footer>
+						</MainLayout>
+						<CalendarLayout>
+							<Card  backgroundColor={({ theme }) => theme.colors.blue}/>
+							<Card  backgroundColor={({ theme }) => theme.colors.green}/>
+							<Card  backgroundColor={({ theme }) => theme.colors.red}/>
+						</CalendarLayout>
+					</DashboardLayout>
+				</Card>
+			</CenterLayout>
 	)
 }
