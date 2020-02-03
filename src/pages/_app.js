@@ -12,6 +12,11 @@ const theme = {
 			'0',
 			'1rem'
 		],
+		gridColumns: [
+			'4rem 1fr',
+			'1fr 25%',
+			'1fr 1fr',
+		],
 		padding: [
 			'0',
 			'0.75rem 1rem 0.75rem 0.875rem',

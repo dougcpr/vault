@@ -7,7 +7,7 @@ import NavBar from '../components/NavBar/NavBar';
 const DashboardLayout = styled.div`
 	column-gap: 1rem;
 	display: grid;
-	grid-template-columns: 4rem 1fr 25%;
+	grid-template-columns: ${({theme}) => theme.style.gridColumns[0]};
 	width: 80vw;
 	height: 80vh;
 `;
