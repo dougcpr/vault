@@ -40,7 +40,7 @@ const CalendarLayout = styled.div`
 	padding: ${({theme}) => theme.style.padding[2]};
 	display: grid;
   row-gap: 1rem;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 1.5fr;
 `;
 
 export default () => {
