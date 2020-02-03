@@ -67,4 +67,7 @@
       <textMaps />
     </LinkMapSettings>
   </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/src/pages/dashboard/dashboard.js" />
+  </component>
 </project>

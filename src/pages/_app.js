@@ -27,6 +27,7 @@ const theme = {
 		default: 'rgba(0,0,0,.3)',
 		defaultBackgroundColor: 'white',
 		disabled: '#f5f5f5',
+		disabled_NavBar_Item: '#8BB7F1',
 		fontFamily: 'Roboto, sans-serif',
 		green: '#50bc91',
 		blue: '#60CDFF',

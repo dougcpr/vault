@@ -1,16 +1,7 @@
 import React  from 'react'
-import NavBar from '../components/NavBar';
-import CenterLayout from '../layouts/CenterLayout';
 import Card from '../components/Card';
 import styled from 'styled-components'
-
-const DashboardLayout = styled.div`
-	column-gap: 1rem;
-	display: grid;
-	grid-template-columns: 6.25rem 1fr 25%;
-	width: 80vw;
-	height: 80vh;
-`;
+import DashboardLayout from '../layouts/DashboardLayout';
 
 const MainLayout = styled.div`
 	display: grid;
@@ -45,34 +36,29 @@ const CalendarLayout = styled.div`
 
 export default () => {
 	return (
-			<CenterLayout>
-				<Card borderRadius={1} boxShadow={1} padding={false}>
-					<DashboardLayout>
-						<NavBar/>
-						<MainLayout>
-							<Header>
-								<Card
-									borderRadius={1}
-									backgroundColor={({ theme }) => theme.colors.green}
-								/>
-							</Header>
-							<GraphCardLayout>
-								<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
-								<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.green}/>
-								<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
-							</GraphCardLayout>
-							<Footer>
-								<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
-								<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.green}/>
-							</Footer>
-						</MainLayout>
-						<CalendarLayout>
-							<Card  backgroundColor={({ theme }) => theme.colors.blue}/>
-							<Card  backgroundColor={({ theme }) => theme.colors.green}/>
-							<Card  backgroundColor={({ theme }) => theme.colors.red}/>
-						</CalendarLayout>
-					</DashboardLayout>
-				</Card>
-			</CenterLayout>
+		<DashboardLayout>
+			<MainLayout>
+				<Header>
+					<Card
+						borderRadius={1}
+						backgroundColor={({ theme }) => theme.colors.blue}
+					/>
+				</Header>
+				<GraphCardLayout>
+					<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
+					<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.green}/>
+					<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
+				</GraphCardLayout>
+				<Footer>
+					<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
+					<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.green}/>
+				</Footer>
+			</MainLayout>
+			<CalendarLayout>
+				<Card  backgroundColor={({ theme }) => theme.colors.blue}/>
+				<Card  backgroundColor={({ theme }) => theme.colors.green}/>
+				<Card  backgroundColor={({ theme }) => theme.colors.red}/>
+			</CalendarLayout>
+		</DashboardLayout>
 	)
 }
