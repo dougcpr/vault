@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const DashboardLayout = styled.div`
 	column-gap: 1rem;
 	display: grid;
-	grid-template-columns: 6.25rem 1fr 20%;
+	grid-template-columns: 6.25rem 1fr 25%;
 	width: 80vw;
 	height: 80vh;
 `;
