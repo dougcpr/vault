@@ -86,7 +86,7 @@ export default (props) => {
 		backgroundColor,
 		color,
 		animate,
-		padding,
+		padding = true,
 		...RemainingProps} = props;
 	return (
 			<Card
