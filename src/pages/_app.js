@@ -12,11 +12,10 @@ const theme = {
 			'0',
 			'1rem'
 		],
-		gridColumns: [
-			'4rem 1fr',
-			'1fr 25%',
-			'1fr 1fr',
-		],
+		gridColumns: {
+			dashboardLayout: '4rem 1fr',
+			dashboardContent: '1fr 25%'
+		},
 		padding: [
 			'0',
 			'0.75rem 1rem 0.75rem 0.875rem',
@@ -24,7 +23,6 @@ const theme = {
 		]
 	},
 	colors: {
-		background_color_nav: '#347DDB',
 		black: '#000',
 		button_disabled: 'rgba(0, 0, 0, 0.26)',
 		button_disabled_bg: 'rgba(0, 0, 0, 0.12)',
@@ -35,9 +33,9 @@ const theme = {
 		disabled_NavBar_Item: '#8BB7F1',
 		fontFamily: 'Roboto, sans-serif',
 		green: '#50bc91',
-		blue: '#60CDFF',
+		blue: '#347DDB',
 		input_border_hover: 'rgba(0,0,0,.87)',
-		red: '#FF6260',
+		red: '#FF1654',
 		white: '#fff',
 		font_medium: '1rem',
 		width_medium: '12.5rem'
@@ -48,6 +46,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
+    background-color: ${props => props.theme.colors.defaultBackgroundColor};
     font-family: ${props => props.theme.fontFamily};
   }
 `;

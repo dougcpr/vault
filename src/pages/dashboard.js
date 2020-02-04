@@ -5,7 +5,7 @@ import DashboardLayout from '../layouts/DashboardLayout';
 
 const DashboardContainer = styled.div`
 	display: grid;
-	grid-template-columns: ${({theme}) => theme.style.gridColumns[1]};
+	grid-template-columns: ${({theme}) => theme.style.gridColumns.dashboardContent};
 `;
 
 const MainLayout = styled.div`

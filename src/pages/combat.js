@@ -7,20 +7,23 @@ import styled from 'styled-components';
 const CombatLayout = styled.div`
 	display: grid;
 	grid-template-columns: 1fr;
-   grid-auto-rows: 4rem 1fr;
+  grid-auto-rows: 4rem 1fr;
 	padding: ${({theme}) => theme.style.padding[1]};
 `;
 
 const DropdownContainer = styled.div`
 	display: flex;
-	justify-content: flex-end;
+	justify-content: flex-start;
 `;
 
-const DragDropContainer = styled.div`
+const EncounterContainer = styled.div`
 	column-gap: 1rem;
 	display: grid;
+	grid-auto-rows: 25%;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
 	height: 100%;
-	grid-template-columns: ${({theme}) => theme.style.gridColumns[2]};
+	overflow: scroll;
+	row-gap: 1rem;
 `;
 
 export default () => {
@@ -32,10 +35,19 @@ export default () => {
 				<DropdownContainer>
 					<Dropdown value={encounter} onSelected={(value) => {setEncounter(value)}}  label={'Select an Encounter'} items={encounters}/>
 				</DropdownContainer>
-				<DragDropContainer>
+				<EncounterContainer>
 					<Card backgroundColor={({ theme }) => theme.colors.blue}/>
 					<Card backgroundColor={({ theme }) => theme.colors.green}/>
-				</DragDropContainer>
+					<Card backgroundColor={({ theme }) => theme.colors.green}/>
+					<Card backgroundColor={({ theme }) => theme.colors.green}/>
+					<Card backgroundColor={({ theme }) => theme.colors.green}/>
+					<Card backgroundColor={({ theme }) => theme.colors.green}/>
+					<Card backgroundColor={({ theme }) => theme.colors.green}/>
+					<Card backgroundColor={({ theme }) => theme.colors.green}/>
+					<Card backgroundColor={({ theme }) => theme.colors.green}/>
+					<Card backgroundColor={({ theme }) => theme.colors.green}/>
+					<Card backgroundColor={({ theme }) => theme.colors.green}/>
+				</EncounterContainer>
 			</CombatLayout>
 		</DashboardLayout>
 	)
