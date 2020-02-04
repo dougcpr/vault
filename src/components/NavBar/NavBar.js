@@ -1,7 +1,7 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-import {Dashboard, Settings, Exit} from 'styled-icons/material'
+import {Dashboard, Settings} from 'styled-icons/material'
 import {Scroll} from 'styled-icons/fa-solid/Scroll';
 import {LogOutCircle} from 'styled-icons/boxicons-regular/LogOutCircle';
 import {Sword} from 'styled-icons/remix-fill/Sword';

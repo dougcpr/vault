@@ -29,7 +29,6 @@ const DropdownContainer = styled.div`
 	cursor: pointer;
   margin-bottom: 0.25rem;
   position: relative;
-  max-width: 16rem;
   width: 100%;
   @media (max-width : 425px) {
 		max-width: 100%;
@@ -56,7 +55,6 @@ const DropdownContentContainer = styled.div`
   display: none;
   font-size: 1rem;
   max-height: 10rem;
-	// max-width: 16rem;
   outline: none;
   overflow-y: scroll;
   position: absolute;
