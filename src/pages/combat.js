@@ -19,8 +19,8 @@ const DropdownContainer = styled.div`
 const EncounterContainer = styled.div`
 	column-gap: 1rem;
 	display: grid;
-	grid-auto-rows: 25%;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-auto-rows: 40%;
+	grid-template-columns: 1fr 1fr 1fr;
 	height: 100%;
 	overflow: scroll;
 	row-gap: 1rem;

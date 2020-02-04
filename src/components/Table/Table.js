@@ -11,10 +11,11 @@ const Table = styled.table`
 
 export default (props) => {
 	const {
-		headers = [{value: 'Category', width: '19%'}, {value: 'Item Name', width: '20%'}, {value: 'Location'}],
+		headers = [{value: 'Character', width: '25%'}, {value: 'Action', width: '30%'}, {value: 'Location'}],
 		tableData = [
-			[{value: 'Row 1 Text Element 1'}, {value: 'Row 1 Text Element 2'}, {value: 'Row 1 Text Element 3'}],
-			[{value: 'Row 2 Text Element 1'}, {value: 'Row 2 Text Element 2'}, {value: 'Row 1 Text Element 3'}]],
+			[{value: 'Character A'}, {value: 'Attacks Character C for X DMG'}, {value: 'Row 1 Text Element 3'}],
+			[{value: 'Character C'}, {value: 'Attacks Character B for X DMG'}, {value: 'Row 1 Text Element 3'}],
+			[{value: 'Character B'}, {value: 'Heals Character A for X HEALTH'}, {value: 'Row 1 Text Element 3'}]],
 		...RemainingProps
 	} = props;
 	return (

@@ -15,7 +15,7 @@ const NavBarItem = styled.div`
 	color: ${({ theme }) => theme.colors.disabled_NavBar_Item};
 	width: 2rem;
 	height: 2rem;
-	padding: 0 14px;
+	padding: 0 1rem;
 	&:hover {
 		color: white;
 		cursor: pointer;
