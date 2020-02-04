@@ -1,8 +1,9 @@
 import React  from 'react';
 import styled from 'styled-components';
 
-import {Dashboard, Settings} from 'styled-icons/material'
+import {Dashboard, Settings, Exit} from 'styled-icons/material'
 import {Scroll} from 'styled-icons/fa-solid/Scroll';
+import {LogOutCircle} from 'styled-icons/boxicons-regular/LogOutCircle';
 import {Sword} from 'styled-icons/remix-fill/Sword';
 import NavBarItem from './NavBarItem';
 
@@ -17,7 +18,7 @@ const IconContainer = styled.div`
 	display: grid;
 	grid-template-columns: 1fr;
 	margin: 0 auto;
-	grid-template-rows: 5% 1rem 10% 2rem 2rem 2rem 2rem 1fr;
+	grid-template-rows: 5% 2rem 2rem 2rem 2rem 1fr 2rem 5%;
 	row-gap: 1rem;
 	height: 100%;
 	width: 100%;
@@ -31,10 +32,11 @@ export default (props) => {
 			<IconContainer>
 				<div />
 				<NavBarItem path={'/dashboard'}><Dashboard/></NavBarItem>
-				<div />
 				<NavBarItem path={'/combat'}><Sword/></NavBarItem>
 				<NavBarItem path={'/quests'}><Scroll/></NavBarItem>
 				<NavBarItem path={'/settings'}><Settings/></NavBarItem>
+				<div />
+				<NavBarItem path={'/'}><LogOutCircle/></NavBarItem>
 				<div />
 			</IconContainer>
 		</NavBar>
