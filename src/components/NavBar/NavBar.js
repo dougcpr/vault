@@ -2,7 +2,6 @@ import React  from 'react';
 import styled from 'styled-components';
 
 import {Dashboard, Settings} from 'styled-icons/material'
-import {Wechat} from 'styled-icons/remix-fill/Wechat';
 import {Scroll} from 'styled-icons/fa-solid/Scroll';
 import {Sword} from 'styled-icons/remix-fill/Sword';
 import NavBarItem from './NavBarItem';
@@ -35,7 +34,6 @@ export default (props) => {
 				<div />
 				<NavBarItem path={'/combat'}><Sword/></NavBarItem>
 				<NavBarItem path={'/quests'}><Scroll/></NavBarItem>
-				<NavBarItem path={'/chat'}><Wechat/></NavBarItem>
 				<NavBarItem path={'/settings'}><Settings/></NavBarItem>
 				<div />
 			</IconContainer>
