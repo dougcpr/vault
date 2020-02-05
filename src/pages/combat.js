@@ -14,8 +14,9 @@ const CombatLayout = styled.div`
 `;
 
 const DropdownContainer = styled.div`
-	display: flex;
-	justify-content: flex-start;
+	display: grid;
+	column-gap: 1rem;
+	grid-template-columns: 1fr;
 `;
 
 const EncounterContainer = styled.div`
@@ -24,12 +25,13 @@ const EncounterContainer = styled.div`
 	column-gap: 1rem;
 `;
 const CharactersContainer = styled.div`
-	overflow: scroll;
-	column-gap: 1rem;
 	display: grid;
 	grid-auto-rows: 20%;
-	grid-template-columns: 1fr;
-	row-gap: 1rem;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+	column-gap: 1rem;
+	
+	justify-content: space-between;
+	overflow-x:scroll;
 `;
 
 const ActionsContainer = styled.div`
@@ -60,18 +62,18 @@ export default () => {
 				</DropdownContainer>
 				<EncounterContainer>
 					<CharactersContainer>
-						<Card backgroundColor={({ theme }) => theme.colors.blue} />
-						<Card backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card backgroundColor={({ theme }) => theme.colors.blue}/>
-						<Card backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card backgroundColor={({ theme }) => theme.colors.blue}/>
-						<Card backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card backgroundColor={({ theme }) => theme.colors.blue}/>
-						<Card backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card backgroundColor={({ theme }) => theme.colors.blue}/>
-						<Card backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card backgroundColor={({ theme }) => theme.colors.green}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue} />
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
+						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.green}/>
 					</CharactersContainer>
 					<ActionsContainer>
 						<ActionContainer>

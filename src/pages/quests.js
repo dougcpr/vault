@@ -47,6 +47,44 @@ const TasksContainer = styled.div`
 	overflow: scroll;
 	row-gap: 0.5rem;
 `;
+
+const PlotText = styled.span`
+	position: relative;
+	top: 0.125rem;
+`;
+
+const CheckboxComponent = styled.div`
+	display: grid;
+	grid-template-columns: 10% 1fr 5%;
+`;
+
+export const Trashcan = styled(TrashAlt)`
+	width: 1.25rem;
+	height: 1.25rem;
+	&:hover {
+		cursor: pointer;
+		color: red;
+	}
+`;
+
+export const FilledCheckbox = styled(Checkbox)`
+	width: 1.25rem;
+	height: 1.25rem;
+	&:hover {
+		cursor: pointer;
+		color: white;
+	}
+`;
+
+export const BlankCheckbox = styled(CheckboxBlank)`
+	width: 1.25rem;
+	height: 1.25rem;
+	&:hover {
+		cursor: pointer;
+		color: ${({ theme }) => theme.colors.green};
+	}
+`;
+
 export default () => {
 	const [type, setType] = useState('Quest');
 	const types = ['Quest', 'Plot Point'];
@@ -65,18 +103,23 @@ export default () => {
 						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest B</Card>
 						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest C</Card>
 						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest D</Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest E</Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest F</Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest G</Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest H</Card>
 					</QuestsContainer>
 					<TasksContainer>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled}><CheckboxBlank size={20} /><span>Plot Point 1</span><TrashAlt size={20} /></Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled}><CheckboxBlank size={20} /><span>Plot Point 2</span><TrashAlt size={20} /></Card>
-						<Card backgroundColor={({ theme }) => theme.colors.green}><span><Checkbox size={20} /></span>Plot Point 3 <span><TrashAlt size={20} /></span></Card>
-						<Card backgroundColor={({ theme }) => theme.colors.green}><span><Checkbox size={20} /></span>Plot Point 4 <span><TrashAlt size={20} /></span></Card>
-						<Card backgroundColor={({ theme }) => theme.colors.green}><span><Checkbox size={20} /></span>Plot Point 5 <span><TrashAlt size={20} /></span></Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled}><CheckboxBlank size={20} /><span>Plot Point 6</span><TrashAlt size={20} /></Card>
+						<Card backgroundColor={({ theme }) => theme.colors.disabled}>
+							<CheckboxComponent>
+								<BlankCheckbox /><PlotText>This is Plot Point 1</PlotText><Trashcan />
+							</CheckboxComponent>
+						</Card>
+						<Card backgroundColor={({ theme }) => theme.colors.disabled}>
+							<CheckboxComponent>
+								<BlankCheckbox /><PlotText>This is Plot Point 1</PlotText><Trashcan />
+							</CheckboxComponent>
+						</Card>
+						<Card backgroundColor={({ theme }) => theme.colors.green}>
+							<CheckboxComponent>
+								<FilledCheckbox /><PlotText>This is Plot Point 3 </PlotText><Trashcan />
+							</CheckboxComponent>
+						</Card>
 					</TasksContainer>
 				</BottomContainer>
 			</MainContainer>
