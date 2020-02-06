@@ -33,9 +33,9 @@ export default class MyDocument extends Document {
 
 		return (
 			<html>
-			<Head>
+			<Head crossOrigin={} nonce={}>
 				<meta name='viewport' content='initial-scale=1.0, width=device-width'/>
-				<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"/>
+				<title>Vault</title>
 			</Head>
 			<body>
 			<noscript>
