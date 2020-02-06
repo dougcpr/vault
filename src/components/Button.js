@@ -12,7 +12,7 @@ const Button = styled.button`
 	background-color: ${({ theme }) => theme.colors.green};
   border: none;
   border-radius: 0.25rem;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.black};
   cursor: pointer;
   font-size: ${({ theme }) => theme.colors.font_medium};
   font-weight: 500;
