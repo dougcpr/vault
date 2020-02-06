@@ -1,13 +1,11 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import Card from '../components/Card';
+import Task from '../components/Task';
 import Input from '../components/Input';
 import Dropdown from '../components/Dropdown';
 import Button from '../components/Button';
 import DashboardLayout from '../layouts/DashboardLayout';
-import {CheckboxBlank} from 'styled-icons/remix-line/CheckboxBlank';
-import {Checkbox} from 'styled-icons/remix-line/Checkbox';
-import {TrashAlt} from 'styled-icons/boxicons-regular/TrashAlt';
 
 const MainContainer = styled.div`
 	column-gap: 1rem;
@@ -42,48 +40,11 @@ const AddQuestContainer = styled.div`
 const TasksContainer = styled.div`
 	column-gap: 1rem;
 	display: grid;
-	grid-auto-rows: 10%;
 	grid-template-columns: 1fr;
-	overflow: scroll;
+	height: min-content;
 	row-gap: 0.5rem;
 `;
 
-const PlotText = styled.span`
-	position: relative;
-	top: 0.125rem;
-`;
-
-const CheckboxComponent = styled.div`
-	display: grid;
-	grid-template-columns: 10% 1fr 5%;
-`;
-
-export const Trashcan = styled(TrashAlt)`
-	width: 1.25rem;
-	height: 1.25rem;
-	&:hover {
-		cursor: pointer;
-		color: red;
-	}
-`;
-
-export const FilledCheckbox = styled(Checkbox)`
-	width: 1.25rem;
-	height: 1.25rem;
-	&:hover {
-		cursor: pointer;
-		color: white;
-	}
-`;
-
-export const BlankCheckbox = styled(CheckboxBlank)`
-	width: 1.25rem;
-	height: 1.25rem;
-	&:hover {
-		cursor: pointer;
-		color: ${({ theme }) => theme.colors.green};
-	}
-`;
 
 export default () => {
 	const [type, setType] = useState('Quest');
@@ -105,21 +66,9 @@ export default () => {
 						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest D</Card>
 					</QuestsContainer>
 					<TasksContainer>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled}>
-							<CheckboxComponent>
-								<BlankCheckbox /><PlotText>This is Plot Point 1</PlotText><Trashcan />
-							</CheckboxComponent>
-						</Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled}>
-							<CheckboxComponent>
-								<BlankCheckbox /><PlotText>This is Plot Point 1</PlotText><Trashcan />
-							</CheckboxComponent>
-						</Card>
-						<Card backgroundColor={({ theme }) => theme.colors.green}>
-							<CheckboxComponent>
-								<FilledCheckbox /><PlotText>This is Plot Point 3 </PlotText><Trashcan />
-							</CheckboxComponent>
-						</Card>
+						<Task />
+						<Task />
+						<Task checked={true} />
 					</TasksContainer>
 				</BottomContainer>
 			</MainContainer>

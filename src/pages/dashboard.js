@@ -2,6 +2,8 @@ import React  from 'react'
 import Card from '../components/Card';
 import styled from 'styled-components'
 import DashboardLayout from '../layouts/DashboardLayout';
+import { Line, Radar, Bar, Doughnut } from 'react-chartjs-2';
+import { BarChartData, DonutChartData, LineChartData, RadarChartData } from '../utils/chart.helper.js'
 
 const DashboardContainer = styled.div`
 	display: grid;
@@ -11,25 +13,20 @@ const DashboardContainer = styled.div`
 const MainLayout = styled.div`
 	display: grid;
 	column-gap: 1rem;
-	grid-template-rows: 0.5fr 2fr 2fr;
+	grid-template-rows: 1fr 1fr;
 	row-gap: 1rem;
 	padding: ${({ theme }) => theme.style.padding[1]};
 `;
 
-const Header = styled.div`
-	display: grid;
-	grid-template-columns: 1fr;
-`;
-
 const GraphCardLayout = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr;
 	column-gap: 1rem;
 `;
 
 const Footer = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 2fr 1fr;
 	column-gap: 1rem;
 `;
 
@@ -37,7 +34,7 @@ const CalendarLayout = styled.div`
 	padding: ${({theme}) => theme.style.padding[2]};
 	display: grid;
   row-gap: 1rem;
-  grid-template-rows: 1fr 2fr 1.5fr;
+  grid-template-rows: 1fr 1.5fr 2fr;
 `;
 
 export default () => {
@@ -45,28 +42,30 @@ export default () => {
 		<DashboardLayout>
 			<DashboardContainer>
 				<MainLayout>
-					<Header>
-						<Card
-							borderRadius={1}
-							backgroundColor={({ theme }) => theme.colors.blue}
-						>Header</Card>
-					</Header>
 					<GraphCardLayout>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}>Line Graph - showing how much experience they earned per session</Card>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.green}>Polar Area Chart</Card>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}>Radar Chart - showing bad/good events for all players.</Card>
+						<Card borderRadius={1}>
+							<Bar data={BarChartData} width={100} height={180} options={{maintainAspectRatio: false}}/>
+						</Card>
+						<Card borderRadius={1} >
+							<Radar legend={{display: false}} data={RadarChartData} width={100} height={60} />
+						</Card>
 					</GraphCardLayout>
 					<Footer>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}>Histogram of battles, side quests, and main quests color coded</Card>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.green}>Bar Chart - battles, side quests, and main quests</Card>
+						<Card borderRadius={1} >
+							<Line data={LineChartData} width={100} height={200} options={{ maintainAspectRatio: false }}
+							/>
+						</Card>
+						<Card borderRadius={1} >
+							<Doughnut legend={{display: true}} width={100} height={100} data={DonutChartData} />
+						</Card>
 					</Footer>
 				</MainLayout>
 				<CalendarLayout>
-					<Card  backgroundColor={({ theme }) => theme.colors.blue}>Quick Team Stats</Card>
-					<Card  backgroundColor={({ theme }) => theme.colors.green}>Calendar</Card>
-					<Card  backgroundColor={({ theme }) => theme.colors.red}>Notifications</Card>
+					<Card backgroundColor={({ theme }) => theme.colors.blue}>Quick Team Stats</Card>
+					<Card backgroundColor={({ theme }) => theme.colors.red}>Notifications</Card>
+					<Card backgroundColor={({ theme }) => theme.colors.green}>Calendar</Card>
 				</CalendarLayout>
 			</DashboardContainer>
 		</DashboardLayout>
 	)
-}
+};

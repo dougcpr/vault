@@ -8,8 +8,8 @@ const DashboardLayout = styled.div`
 	column-gap: 1rem;
 	display: grid;
 	grid-template-columns: ${({theme}) => theme.style.gridColumns.dashboardLayout};
-	width: 80vw;
-	height: 80vh;
+	width: 64.375rem;
+	height: 33.56rem;
 `;
 
 export default (props) => (
