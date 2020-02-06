@@ -27,5 +27,19 @@ export const quests = [
 				checked: false
 			}
 		]
+	}, {
+		title: 'Side Quest B',
+		plotPoints: [
+			{
+				title: 'Go to Work',
+				checked: true
+			}, {
+				title: 'Write code',
+				checked: true
+			}, {
+				title: 'Eat lunch',
+				checked: true
+			}
+		]
 	}
 ];

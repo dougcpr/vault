@@ -6,8 +6,10 @@ import Input from '../components/Input';
 import Dropdown from '../components/Dropdown';
 import Button from '../components/Button';
 import DashboardLayout from '../layouts/DashboardLayout';
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
 import {quests} from '../utils/mock.quest-data.js';
+import {Bar} from 'react-chartjs-2';
+import {BarChartData} from '../utils/mock.chart-data.js'
 
 const MainContainer = styled.div`
 	column-gap: 1rem;
@@ -19,13 +21,19 @@ const MainContainer = styled.div`
 `;
 
 const QuestsContainer = styled.div`
-	overflow: scroll;
-	column-gap: 1rem;
 	display: grid;
-	height: min-content;
-	grid-template-columns: 1fr;
+	grid-template-rows: 1fr 1fr;
 	row-gap: 1rem;
 `;
+
+const ListOfQuests = styled.div`
+	display: grid;
+	height: min-content;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: 1fr;
+	column-gap: 1rem;
+	row-gap: 1rem;
+`
 
 const BottomContainer = styled.div`
 	display: grid;
@@ -51,7 +59,7 @@ const TasksContainer = styled.div`
 export default () => {
 	const [type, setType] = useState('Quest');
 	const [plotPoints, setPlotPoints] = useState([]);
-	const types = ['Quest', 'Plot Point'];
+	const types = ['Quest', 'Task'];
 	const router = useRouter();
 	async function updatePlotPoints(quest) {
 		await router.push(`/quests?${quest.title}=true`);
@@ -67,17 +75,22 @@ export default () => {
 				</AddQuestContainer>
 				<BottomContainer>
 					<QuestsContainer>
-						{quests.map((quest, i) => {
-							return (
-								<Card
-									key={i}
-									cursor={'pointer'}
-									onClick={() => updatePlotPoints(quest)}
-									backgroundColor={(router.query[[quest.title]])? ({ theme }) => theme.colors.blue : ({ theme }) => theme.colors.disabled_NavBar_Item}>
-									{quest.title}
-								</Card>
-							)
-						})}
+						<ListOfQuests>
+							{quests.map((quest, i) => {
+								return (
+									<Card
+										key={i}
+										cursor={'pointer'}
+										onClick={() => updatePlotPoints(quest)}
+										backgroundColor={(router.query[[quest.title]])? ({ theme }) => theme.colors.blue : ({ theme }) => theme.colors.disabled_NavBar_Item}>
+										{quest.title}
+									</Card>
+								)
+							})}
+						</ListOfQuests>
+						<Card borderRadius={1}>
+							<Bar data={BarChartData} width={100} height={180} options={{maintainAspectRatio: false}}/>
+						</Card>
 					</QuestsContainer>
 					<TasksContainer>
 						{plotPoints.map((plotPoint, i) => {
