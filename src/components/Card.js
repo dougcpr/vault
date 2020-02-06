@@ -2,39 +2,46 @@ import React  from 'react';
 import styled, {css} from 'styled-components'
 import { motion, AnimatePresence } from "framer-motion";
 
-const isFlatMixin = (props) => {
+const isFlatMixin = ({flat}) => {
 	const cardShadow = css`
 		box-shadow: ${({ theme }) => theme.style.box_shadow[0]}
 	`;
-	return props.flat ? null : cardShadow;
+	return flat ? null : cardShadow;
 };
 
-const backgroundColor = (props) => {
+const updateCursor = ({cursor}) => {
+	const updateCursor = css`
+		cursor: ${cursor};
+	`;
+	return cursor ? updateCursor : null;
+};
+
+const backgroundColor = ({backgroundColor}) => {
 	const cardBackground = css`
-		background-color: ${props.backgroundColor};
+		background-color: ${backgroundColor};
 	`;
-	return props.backgroundColor ? cardBackground : null;
+	return backgroundColor ? cardBackground : null;
 };
 
-const boxShadow = (props) => {
+const boxShadow = ({boxShadow}) => {
 	const defaultBoxShadow = css`
-		box-shadow: ${({ theme }) => theme.style.box_shadow[props.boxShadow]};
+		box-shadow: ${({ theme }) => theme.style.box_shadow[boxShadow]};
 	`;
-	return props.boxShadow > 0 ? defaultBoxShadow : null;
+	return boxShadow > 0 ? defaultBoxShadow : null;
 };
 
-const updateBorderRadius = (props) => {
+const updateBorderRadius = ({borderRadius}) => {
 	const defaultBorderRadius = css`
-		border-radius: ${({ theme }) => theme.style.borderRadius[props.borderRadius]};
+		border-radius: ${({ theme }) => theme.style.borderRadius[borderRadius]};
 	`;
-	return props.borderRadius ? defaultBorderRadius : null;
+	return borderRadius ? defaultBorderRadius : null;
 };
 
-const fontColor = (props) => {
-	const color = css`
-		color: ${props.color};
+const fontColor = ({color}) => {
+	const textColor = css`
+		color: ${color};
 	`;
-	return props.color ? color : null;
+	return color ? textColor : null;
 };
 
 const removePadding = (props) => {
@@ -62,6 +69,7 @@ const Card = styled.div`
  ${(props) => updateBorderRadius(props)};
  ${(props) => fontColor(props)};
  ${(props) => removePadding(props)};
+ ${(props) => updateCursor(props)};
 	
 	@media (max-width : 425px) {
     width: 100vw;
@@ -82,6 +90,7 @@ export default (props) => {
 	const {
 		boxShadow,
 		borderRadius,
+		cursor,
 		flat,
 		backgroundColor,
 		color,
@@ -95,6 +104,7 @@ export default (props) => {
 				flat={flat}
 				backgroundColor={backgroundColor}
 				color={color}
+				cursor={cursor}
 				padding={padding}
 				{...RemainingProps}>
 				<AnimatePresence initial={animate === true} >

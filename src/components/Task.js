@@ -1,16 +1,15 @@
 import React, {useState}  from 'react';
 import styled, {css} from 'styled-components';
-import {Checkbox} from 'styled-icons/remix-line/Checkbox';
+import Card from './Card';
+import Checkbox from './Checkbox';
 import {CheckboxBlank} from 'styled-icons/remix-line/CheckboxBlank';
 import {TrashAlt} from 'styled-icons/boxicons-regular/TrashAlt';
-import Card from './Card';
 
-const isComplete = ({checked}) => {
-	console.log(checked);
+const taskComplete = ({task}) => {
 	const strikeThroughText = css`
-		text-decoration: strikethrough;
+		text-decoration: line-through;
 	`;
-	return checked ? null : strikeThroughText;
+	return task ? strikeThroughText : null;
 };
 
 const CheckboxContainer = styled.div`
@@ -21,7 +20,7 @@ const CheckboxContainer = styled.div`
 const PlotText = styled.span`
 	position: relative;
 	top: 0.125rem;
-	${(props) => isComplete(props)};
+	${(props) => taskComplete(props)};
 `;
 
 export const FilledCheckbox = styled(Checkbox)`
@@ -52,27 +51,16 @@ export const Trashcan = styled(TrashAlt)`
 `;
 
 export default (props) => {
-	let {checked, block, text = 'Sample Text', ...RemainingProps } = props;
+	const {checked = false, text = 'Sample Text', ...RemainingProps } = props;
 	const [task, toggleTask] = useState(checked);
 	function toggle() {
-		toggleTask(!task)
-		checked = task;
+		toggleTask(!task);
 	}
-	if(task) {
-		return (
-			<Card backgroundColor={task ? ({ theme }) => theme.colors.green : ({ theme }) => theme.colors.disabled}>
-				<CheckboxContainer>
-					<FilledCheckbox onClick={toggle} /><PlotText>{text}</PlotText><Trashcan />
-				</CheckboxContainer>
-			</Card>
-		)
-	} else {
-		return (
-			<Card backgroundColor={task ? ({ theme }) => theme.colors.green : ({ theme }) => theme.colors.disabled}>
-				<CheckboxContainer>
-					<BlankCheckbox onClick={toggle} /><PlotText>{text}</PlotText><Trashcan />
-				</CheckboxContainer>
-			</Card>
-		)
-	}
+	return (
+		<Card cursor={'pointer'} onClick={toggle} backgroundColor={task ? ({ theme }) => theme.colors.green : ({ theme }) => theme.colors.disabled}>
+			<CheckboxContainer>
+				<Checkbox checked={task}/><PlotText task={task}>{text}</PlotText><Trashcan />
+			</CheckboxContainer>
+		</Card>
+	)
 }
