@@ -14,7 +14,7 @@ const taskComplete = ({task}) => {
 
 const CheckboxContainer = styled.div`
 	display: grid;
-	grid-template-columns: 10% 1fr 5%;
+	grid-template-columns: 10% 1fr;
 `;
 
 const PlotText = styled.span`
@@ -50,17 +50,29 @@ export const Trashcan = styled(TrashAlt)`
 	}
 `;
 
+const TaskContainer = styled.div`
+	display: grid;
+	grid-template-columns: 1fr 5%;
+`;
+
 export default (props) => {
 	const {checked = false, text = 'Sample Text', ...RemainingProps } = props;
 	const [task, toggleTask] = useState(checked);
 	function toggle() {
 		toggleTask(!task);
 	}
+	function deleteTask() {
+		console.log('Delete Task');
+	}
 	return (
-		<Card cursor={'pointer'} onClick={toggle} backgroundColor={task ? ({ theme }) => theme.colors.green : ({ theme }) => theme.colors.disabled}>
-			<CheckboxContainer>
-				<Checkbox checked={task}/><PlotText task={task}>{text}</PlotText><Trashcan />
-			</CheckboxContainer>
+		<Card cursor={'pointer'} backgroundColor={task ? ({ theme }) => theme.colors.green : ({ theme }) => theme.colors.disabled}>
+			<TaskContainer>
+				<CheckboxContainer onClick={toggle}>
+					<Checkbox checked={task}/>
+					<PlotText task={task}>{text}</PlotText>
+				</CheckboxContainer>
+				<Trashcan onClick={() => deleteTask()} />
+			</TaskContainer>
 		</Card>
 	)
 }

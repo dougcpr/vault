@@ -6,6 +6,8 @@ import Input from '../components/Input';
 import Dropdown from '../components/Dropdown';
 import Button from '../components/Button';
 import DashboardLayout from '../layouts/DashboardLayout';
+import { useRouter } from 'next/router';
+import {quests} from '../utils/mock.quest-data.js';
 
 const MainContainer = styled.div`
 	column-gap: 1rem;
@@ -20,8 +22,8 @@ const QuestsContainer = styled.div`
 	overflow: scroll;
 	column-gap: 1rem;
 	display: grid;
-	grid-auto-rows: 20%;
-	grid-template-columns: 1fr 1fr;
+	height: min-content;
+	grid-template-columns: 1fr;
 	row-gap: 1rem;
 `;
 
@@ -48,7 +50,13 @@ const TasksContainer = styled.div`
 
 export default () => {
 	const [type, setType] = useState('Quest');
+	const [plotPoints, setPlotPoints] = useState([]);
 	const types = ['Quest', 'Plot Point'];
+	const router = useRouter();
+	async function updatePlotPoints(quest) {
+		await router.push(`/quests?${quest.title}=true`);
+		setPlotPoints(quest.plotPoints);
+	}
 	return (
 		<DashboardLayout>
 			<MainContainer>
@@ -59,16 +67,24 @@ export default () => {
 				</AddQuestContainer>
 				<BottomContainer>
 					<QuestsContainer>
-						<Card backgroundColor={({ theme }) => theme.colors.blue}>Main Quest</Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest A</Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest B</Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest C</Card>
-						<Card backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Side Quest D</Card>
+						{quests.map((quest, i) => {
+							return (
+								<Card
+									key={i}
+									cursor={'pointer'}
+									onClick={() => updatePlotPoints(quest)}
+									backgroundColor={(router.query[[quest.title]])? ({ theme }) => theme.colors.blue : ({ theme }) => theme.colors.disabled_NavBar_Item}>
+									{quest.title}
+								</Card>
+							)
+						})}
 					</QuestsContainer>
 					<TasksContainer>
-						<Task />
-						<Task />
-						<Task checked={true} />
+						{plotPoints.map((plotPoint, i) => {
+							return (
+								<Task key={plotPoint.title} checked={plotPoint.checked} text={plotPoint.title} />
+							)
+						})}
 					</TasksContainer>
 				</BottomContainer>
 			</MainContainer>
