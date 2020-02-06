@@ -42,7 +42,7 @@ export default class MyDocument extends Document {
 				<strong>{noScriptMessage}</strong>
 			</noscript>
 			<Main />
-				<NextScript/>
+				<NextScript crossOrigin={} nonce={}/>
 			</body>
 			</html>
 		);
