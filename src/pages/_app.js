@@ -2,7 +2,7 @@ import React from 'react';
 import App from 'next/app'
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-const theme = {
+export const theme = {
 	style: {
 		box_shadow: [
 			'0 0.0625rem 0.1875rem rgba(0,0,0,0.12), 0 0.0625rem 0.125rem rgba(0,0,0,0.24);',
@@ -38,7 +38,14 @@ const theme = {
 		red: '#FF1654',
 		white: '#fff',
 		font_medium: '1rem',
-		width_medium: '12.5rem'
+		width_medium: '12.5rem',
+		chartColors: {
+			backgroundColor: ['rgba(80, 188, 145, 0.4)', 'rgba(255, 22, 85, 0.4)', 'rgba(52, 125, 219, 0.4)', 'rgba(255,255,99, 0.4)'],
+			hoverColor: ['rgba(80, 188, 145, 0.2)', 'rgba(255, 22, 85, 0.2)', 'rgba(52, 125, 219, 0.2)', 'rgba(255,255,99, 0.2)'],
+			borderColor: ['rgba(80, 188, 145, 1)', 'rgba(255, 22, 85, 1)', 'rgba(52, 125, 219, 1)', 'rgba(255,255,99, 1)'],
+			borderWidth: [1, 2],
+		},
+
 	},
 };
 
@@ -56,6 +63,7 @@ export default class Vault extends App {
 		const { Component, pageProps } = this.props;
 			return (
 				<ThemeProvider theme={theme}>
+					<title>Vault</title>
 					<GlobalStyle />
 					<Component {...pageProps}/>
 				</ThemeProvider>

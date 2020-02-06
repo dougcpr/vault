@@ -36,7 +36,6 @@ export default class MyDocument extends Document {
 			<Head>
 				<meta name="Description" content="provide charts and task logging to make a dm's task of managing a group simpler" />
 				<meta name='viewport' content='initial-scale=1.0, width=device-width'/>
-				<title>Vault</title>
 			</Head>
 			<body>
 			<noscript>
