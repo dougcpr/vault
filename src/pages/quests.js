@@ -69,7 +69,7 @@ export default () => {
 		<DashboardLayout>
 			<MainContainer>
 				<AddQuestContainer>
-					<Input label="Title"/>
+					<Input aria-label="Title" label="Title"/>
 					<Dropdown value={type} onSelected={(value) => {setType(value)}} label={'Quest'} items={types}/>
 					<Button block>Add {type}</Button>
 				</AddQuestContainer>

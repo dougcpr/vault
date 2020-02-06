@@ -35,8 +35,8 @@ export default () => {
 	return (
 		<CenterLayout>
 			<Card animate>
-				<Input value={username} onChange={handleUsername} label="Username"/>
-				<Input value={password} onChange={handlePassword} type="password" label="Password"/>
+				<Input aria-label="Username" value={username} onChange={handleUsername} label="Username"/>
+				<Input aria-label="Password" value={password} onChange={handlePassword} type="password" label="Password"/>
 				<Button onClick={register} block>Register</Button>
 				<div><BackLink onClick={back}>Back</BackLink></div>
 			</Card>

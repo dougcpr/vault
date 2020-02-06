@@ -51,8 +51,8 @@ export default () => {
 	return (
 		<CenterLayout>
 			<Card>
-				<Input value={username} onChange={handleUsername} label="Username"/>
-				<Input value={password}  onChange={handlePassword} disabled={true} type="password" label="Password"/>
+				<Input aria-label="Username" value={username} onChange={handleUsername} label="Username"/>
+				<Input aria-label="Password" value={password}  onChange={handlePassword} disabled={true} type="password" label="Password"/>
 				<Button onClick={login} block>Login</Button>
 				<Registration>Register your character <RegisterLink onClick={register}>here</RegisterLink>.</Registration>
 			</Card>

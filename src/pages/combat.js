@@ -78,7 +78,7 @@ export default () => {
 					<ActionsContainer>
 						<ActionContainer>
 							<Dropdown value={action} onSelected={(value) => {setAction(value)}} label={'Damage'} items={actions}/>
-							<Input label="Amount"/>
+							<Input aria-label="Amount" label="Amount"/>
 						</ActionContainer>
 						<Dropdown value={player} onSelected={(value) => {setPlayer(value)}} label={'Player 1'} items={players}/>
 						<ActionContainer>
