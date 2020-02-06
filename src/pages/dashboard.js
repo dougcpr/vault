@@ -3,7 +3,7 @@ import Card from '../components/Card';
 import styled from 'styled-components'
 import DashboardLayout from '../layouts/DashboardLayout';
 import { Line, Radar, Bar, Doughnut } from 'react-chartjs-2';
-import { BarChartData, DonutChartData, LineChartData, RadarChartData } from '../utils/chart.helper.js'
+import { BarChartData, DonutChartData, LineChartData, RadarChartData } from '../utils/mock.chart-data.js'
 
 const DashboardContainer = styled.div`
 	display: grid;
