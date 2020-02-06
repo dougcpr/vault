@@ -50,7 +50,7 @@ export default () => {
 
 	return (
 		<CenterLayout>
-			<Card animate>
+			<Card>
 				<Input value={username} onChange={handleUsername} label="Username"/>
 				<Input value={password}  onChange={handlePassword} disabled={true} type="password" label="Password"/>
 				<Button onClick={login} block>Login</Button>

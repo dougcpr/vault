@@ -1,6 +1,5 @@
 import React  from 'react';
 import styled, {css} from 'styled-components'
-import { motion, AnimatePresence } from "framer-motion";
 
 const isFlatMixin = ({flat}) => {
 	const cardShadow = css`
@@ -94,7 +93,6 @@ export default (props) => {
 		flat,
 		backgroundColor,
 		color,
-		animate,
 		padding = true,
 		...RemainingProps} = props;
 	return (
@@ -107,17 +105,7 @@ export default (props) => {
 				cursor={cursor}
 				padding={padding}
 				{...RemainingProps}>
-				<AnimatePresence initial={animate === true} >
-					<motion.div
-						key={props.children}
-						initial={{ x: 300, opacity: 0 }}
-						animate={{ x: 0, opacity: 1 }}
-						transition={{ duration: 0.7, ease: 'easeInOut' }}
-						exit={{ x: -300,  opacity: 0}}
-					>
-						{props.children}
-					</motion.div>
-				</AnimatePresence>
+					{props.children}
 			</Card>
 		)
 }
