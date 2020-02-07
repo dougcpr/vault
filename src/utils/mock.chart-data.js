@@ -54,6 +54,7 @@ export const BarChartData = {
 			label: 'Types of Sessions',
 			backgroundColor: theme.colors.chartColors.backgroundColor,
 			borderColor: theme.colors.chartColors.borderColor,
+			borderWidth: 1,
 			hoverBackgroundColor:theme.colors.chartColors.hoverColor,
 			data: [8, 4, 6, 2, 0]
 		}

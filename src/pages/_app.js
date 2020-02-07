@@ -41,9 +41,9 @@ export const theme = {
 		width_medium: '12.5rem',
 		chartColors: {
 			backgroundColor: ['rgba(80, 188, 145, 0.4)', 'rgba(255, 22, 85, 0.4)', 'rgba(52, 125, 219, 0.4)', 'rgba(255,255,99, 0.4)'],
+			disabledBackground: ['rgba(80, 188, 145, 0.1)', 'rgba(255, 22, 85, 0.1)', 'rgba(52, 125, 219, 0.1)', 'rgba(255,255,99, 0.1)'],
 			hoverColor: ['rgba(80, 188, 145, 0.2)', 'rgba(255, 22, 85, 0.2)', 'rgba(52, 125, 219, 0.2)', 'rgba(255,255,99, 0.2)'],
-			borderColor: ['rgba(80, 188, 145, 1)', 'rgba(255, 22, 85, 1)', 'rgba(52, 125, 219, 1)', 'rgba(255,255,99, 1)'],
-			borderWidth: [1, 2],
+			borderColor: ['rgba(80, 188, 145, 1)', 'rgba(255, 22, 85, 1)', 'rgba(52, 125, 219, 1)', 'rgba(255,255,99, 1)']
 		},
 
 	},

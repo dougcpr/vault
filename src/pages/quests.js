@@ -6,9 +6,9 @@ import Input from '../components/Input';
 import Dropdown from '../components/Dropdown';
 import Button from '../components/Button';
 import DashboardLayout from '../layouts/DashboardLayout';
-import {useRouter} from 'next/router';
-import {quests} from '../utils/mock.quest-data.js';
 import {Bar} from 'react-chartjs-2';
+import {quests} from '../utils/mock.quest-data.js';
+import {theme} from '../pages/_app';
 import {BarChartData} from '../utils/mock.chart-data.js'
 
 const MainContainer = styled.div`
@@ -22,7 +22,7 @@ const MainContainer = styled.div`
 
 const QuestsContainer = styled.div`
 	display: grid;
-	grid-template-rows: 1fr 1fr;
+	grid-template-rows: 1fr 50%;
 	row-gap: 1rem;
 `;
 
@@ -33,7 +33,7 @@ const ListOfQuests = styled.div`
 	grid-auto-rows: 1fr;
 	column-gap: 1rem;
 	row-gap: 1rem;
-`
+`;
 
 const BottomContainer = styled.div`
 	display: grid;
@@ -58,11 +58,12 @@ const TasksContainer = styled.div`
 
 export default () => {
 	const [type, setType] = useState('Quest');
-	const [plotPoints, setPlotPoints] = useState([]);
+	const [plotPoints, setPlotPoints] = useState(quests[0].plotPoints);
+	const [questTitle, setQuestTitle] = useState(quests[0].title);
 	const types = ['Quest', 'Task'];
-	const router = useRouter();
+	console.log(quests);
 	async function updatePlotPoints(quest) {
-		await router.push(`/quests?${quest.title}=true`);
+		setQuestTitle(quest.title);
 		setPlotPoints(quest.plotPoints);
 	}
 	return (
@@ -82,7 +83,10 @@ export default () => {
 										key={i}
 										cursor={'pointer'}
 										onClick={() => updatePlotPoints(quest)}
-										backgroundColor={(router.query[[quest.title]])? ({ theme }) => theme.colors.blue : ({ theme }) => theme.colors.disabled_NavBar_Item}>
+										backgroundColor={
+											quest.title === questTitle ?
+												theme.colors.chartColors.backgroundColor[i]
+												: theme.colors.chartColors.disabledBackground[i]}>
 										{quest.title}
 									</Card>
 								)

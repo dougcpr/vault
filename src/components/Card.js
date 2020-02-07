@@ -59,7 +59,6 @@ const Card = styled.div`
  min-width: 6.25rem;
  padding: ${({ theme }) => theme.style.padding[1]};
  overflow: hidden;
- transition: 1s ease-in-out;
  width: 100%;
  justify-content: space-around;
  ${(props) => isFlatMixin(props)};
