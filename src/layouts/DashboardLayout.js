@@ -10,11 +10,17 @@ const DashboardLayout = styled.div`
 	grid-template-columns: ${({theme}) => theme.style.gridColumns.dashboardLayout};
 	width: 64.375rem;
 	height: 33.56rem;
+	/* mobile responsiveness */
+	@media (max-width : 812px) {
+		grid-template-columns: 1fr;
+		box-shadow: ${({theme}) => theme.style.box_shadow[0]};
+		overflow: scroll;
+  }
 `;
 
 export default (props) => (
 	<CenterLayout>
-		<Card borderRadius={1} boxShadow={1} padding={false}>
+		<Card borderRadius={1} boxShadow={2} padding={false}>
 			<DashboardLayout>
 				<NavBar/>
 				{props.children}

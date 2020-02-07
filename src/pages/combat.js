@@ -23,6 +23,9 @@ const EncounterContainer = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 40%;
 	column-gap: 1rem;
+	@media (max-width : 812px) {
+		grid-template-columns: 1fr;
+  }
 `;
 const CharactersContainer = styled.div`
 	display: grid;
@@ -32,6 +35,9 @@ const CharactersContainer = styled.div`
 	
 	justify-content: space-between;
 	overflow-x:scroll;
+	@media (max-width : 812px) {
+		grid-template-columns: 1fr;
+  }
 `;
 
 const ActionsContainer = styled.div`
@@ -45,6 +51,9 @@ const ActionContainer = styled.div`
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	column-gap: 1rem;
+	@media (max-width : 812px) {
+		grid-template-columns: 1fr;
+  }
 `;
 
 export default () => {

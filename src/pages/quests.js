@@ -18,12 +18,19 @@ const MainContainer = styled.div`
 	grid-template-rows: 10% 1fr;
 	padding: ${({ theme }) => theme.style.padding[1]};
 	row-gap: 1rem;
+	@media (max-width : 812px) {
+		grid-template-columns: 1fr;
+		padding: ${({theme}) => theme.style.padding[0]};
+  }
 `;
 
 const QuestsContainer = styled.div`
 	display: grid;
 	grid-template-rows: 1fr 50%;
 	row-gap: 1rem;
+	@media (max-width : 812px) {
+		grid-template-columns: 1fr;
+  }
 `;
 
 const ListOfQuests = styled.div`
@@ -33,18 +40,27 @@ const ListOfQuests = styled.div`
 	grid-auto-rows: 1fr;
 	column-gap: 1rem;
 	row-gap: 1rem;
+	@media (max-width : 812px) {
+		grid-template-columns: 1fr;
+  }
 `;
 
 const BottomContainer = styled.div`
 	display: grid;
 	column-gap: 1rem;
 	grid-template-columns: 1fr 60%;
+	@media (max-width : 812px) {
+		grid-template-columns: 1fr;
+  }
 `;
 
 const AddQuestContainer = styled.div`
 	display: grid;
 	grid-template-columns: 2fr 1fr 1fr;
 	column-gap: 1rem;
+	@media (max-width : 812px) {
+		grid-template-columns: 1fr;
+  }
 `;
 
 const TasksContainer = styled.div`
@@ -53,6 +69,9 @@ const TasksContainer = styled.div`
 	grid-template-columns: 1fr;
 	height: min-content;
 	row-gap: 0.5rem;
+	@media (max-width : 812px) {
+		grid-template-columns: 1fr;
+  }
 `;
 
 
@@ -61,7 +80,6 @@ export default () => {
 	const [plotPoints, setPlotPoints] = useState(quests[0].plotPoints);
 	const [questTitle, setQuestTitle] = useState(quests[0].title);
 	const types = ['Quest', 'Task'];
-	console.log(quests);
 	async function updatePlotPoints(quest) {
 		setQuestTitle(quest.title);
 		setPlotPoints(quest.plotPoints);

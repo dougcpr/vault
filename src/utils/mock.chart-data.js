@@ -56,7 +56,7 @@ export const BarChartData = {
 			borderColor: theme.colors.chartColors.borderColor,
 			borderWidth: 1,
 			hoverBackgroundColor:theme.colors.chartColors.hoverColor,
-			data: [8, 4, 6, 2, 0]
+			data: [8, 4, 15, 2, 0]
 		}
 	]
 };

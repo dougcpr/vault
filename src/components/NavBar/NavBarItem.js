@@ -7,6 +7,10 @@ const isActive = ({active}) => {
 		border-left: 2px solid white;
 		color: white;
 		cursor: pointer;
+				@media (max-width : 812px) {
+					border-left: 0;
+					border-bottom: 2px solid white;
+		    }
 	`;
 	return active ? activeNavItem : null;
 };

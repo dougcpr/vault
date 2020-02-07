@@ -11,7 +11,7 @@ const NavBar = styled.div`
  background-color:  ${({ theme }) => theme.colors.blue};
  box-sizing: border-box;
  margin: 0;
- height: 100%;
+ height: 100%;	
 `;
 
 const IconContainer = styled.div`
@@ -22,6 +22,12 @@ const IconContainer = styled.div`
 	row-gap: 1rem;
 	height: 100%;
 	width: 100%;
+	@media (max-width : 812px) {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 5% 2rem 2rem 2rem 2rem 1fr 2rem 5%;
+		height: 100%;
+  }
 `;
 
 export default (props) => {

@@ -3,7 +3,7 @@ import styled, {css} from 'styled-components'
 
 const isFlatMixin = ({flat}) => {
 	const cardShadow = css`
-		box-shadow: ${({ theme }) => theme.style.box_shadow[0]}
+		box-shadow: ${({ theme }) => theme.style.box_shadow[1]}
 	`;
 	return flat ? null : cardShadow;
 };
@@ -69,17 +69,12 @@ const Card = styled.div`
  ${(props) => removePadding(props)};
  ${(props) => updateCursor(props)};
 	
-	@media (max-width : 425px) {
-    width: 100vw;
-    height: 100vh;
-    max-height: 100%;
-    max-width: 100%;
-    padding: 3.125rem;
-  }
-
-  @media (max-width: 812px) {
-    height: 70vh;
-    box-shadow: none;
+	@media (max-width : 812px) {
+		border-radius: 0;
+		box-shadow: ${({ theme }) => theme.style.box_shadow[0]};
+		height: 100vh;
+		width: 100vw;
+		border-bottom: 1px solid black;
   }
 }
 `;
