@@ -43,6 +43,17 @@ const fontColor = ({color}) => {
 	return color ? textColor : null;
 };
 
+const autoHeight = ({autoHeight}) => {
+	const fullHeight = css`
+		height: 70vh;
+	`;
+	const setHeight = css`
+		box-shadow: ${({theme}) => theme.style.box_shadow[0]};
+		height: auto;
+		`;
+	return autoHeight ? setHeight : fullHeight;
+};
+
 const removePadding = (props) => {
 	const p = css`
 		padding: ${({theme}) => theme.style.padding[0]};
@@ -71,16 +82,16 @@ const Card = styled.div`
 	
 	@media (max-width : 812px) {
 		border-radius: 0;
-		box-shadow: ${({ theme }) => theme.style.box_shadow[0]};
-		height: 100vh;
+		box-shadow: ${({ theme }) => theme.style.box_shadow[1]};
 		width: 100vw;
-		border-bottom: 1px solid black;
+		${(props) => autoHeight(props)};
   }
 }
 `;
 
 export default (props) => {
 	const {
+		autoHeight,
 		boxShadow,
 		borderRadius,
 		cursor,
@@ -91,6 +102,7 @@ export default (props) => {
 		...RemainingProps} = props;
 	return (
 			<Card
+				autoHeight={autoHeight}
 				boxShadow={boxShadow}
 				borderRadius={borderRadius}
 				flat={flat}

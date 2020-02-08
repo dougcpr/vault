@@ -22,6 +22,7 @@ const MainLayout = styled.div`
 	@media (max-width : 812px) {
 		grid-template-columns: 1fr;
 		padding: ${({theme}) => theme.style.padding[0]};
+		row-gap: 0;
   }
 `;
 
@@ -31,6 +32,7 @@ const GraphCardLayout = styled.div`
 	column-gap: 1rem;
 	@media (max-width : 812px) {
 		grid-template-columns: 1fr;
+		overflow: scroll;
   }
 `;
 
@@ -50,6 +52,9 @@ const CalendarLayout = styled.div`
   grid-template-rows: 1fr 1.5fr 2fr;
   @media (max-width : 812px) {
 		grid-template-columns: 1fr;
+		grid-template-rows: 1fr;
+		padding: ${({theme}) => theme.style.padding[0]};
+		row-gap: 0;
   }
 `;
 

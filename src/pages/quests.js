@@ -6,10 +6,8 @@ import Input from '../components/Input';
 import Dropdown from '../components/Dropdown';
 import Button from '../components/Button';
 import DashboardLayout from '../layouts/DashboardLayout';
-import {Bar} from 'react-chartjs-2';
 import {quests} from '../utils/mock.quest-data.js';
 import {theme} from '../pages/_app';
-import {BarChartData} from '../utils/mock.chart-data.js'
 
 const MainContainer = styled.div`
 	column-gap: 1rem;
@@ -20,13 +18,15 @@ const MainContainer = styled.div`
 	row-gap: 1rem;
 	@media (max-width : 812px) {
 		grid-template-columns: 1fr;
+		grid-template-rows: 3rem 1fr;
 		padding: ${({theme}) => theme.style.padding[0]};
+		margin: 1rem 0;
   }
 `;
 
 const QuestsContainer = styled.div`
 	display: grid;
-	grid-template-rows: 1fr 50%;
+	grid-template-rows: 1fr;
 	row-gap: 1rem;
 	@media (max-width : 812px) {
 		grid-template-columns: 1fr;
@@ -34,14 +34,13 @@ const QuestsContainer = styled.div`
 `;
 
 const ListOfQuests = styled.div`
-	display: grid;
 	height: min-content;
+	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-auto-rows: 1fr;
 	column-gap: 1rem;
 	row-gap: 1rem;
 	@media (max-width : 812px) {
-		grid-template-columns: 1fr;
+	grid-template-columns: 1fr;
   }
 `;
 
@@ -51,6 +50,7 @@ const BottomContainer = styled.div`
 	grid-template-columns: 1fr 60%;
 	@media (max-width : 812px) {
 		grid-template-columns: 1fr;
+		row-gap: 1rem;
   }
 `;
 
@@ -59,7 +59,7 @@ const AddQuestContainer = styled.div`
 	grid-template-columns: 2fr 1fr 1fr;
 	column-gap: 1rem;
 	@media (max-width : 812px) {
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
   }
 `;
 
@@ -98,6 +98,7 @@ export default () => {
 							{quests.map((quest, i) => {
 								return (
 									<Card
+										autoHeight={true}
 										key={i}
 										cursor={'pointer'}
 										onClick={() => updatePlotPoints(quest)}
@@ -110,9 +111,6 @@ export default () => {
 								)
 							})}
 						</ListOfQuests>
-						<Card borderRadius={1}>
-							<Bar data={BarChartData} width={100} height={180} options={{maintainAspectRatio: false}}/>
-						</Card>
 					</QuestsContainer>
 					<TasksContainer>
 						{plotPoints.map((plotPoint, i) => {

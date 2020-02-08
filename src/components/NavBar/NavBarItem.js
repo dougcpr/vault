@@ -24,6 +24,11 @@ const NavBarItem = styled.div`
 		color: white;
 		cursor: pointer;
 	}
+	@media (max-width : 812px) {
+		padding: 0;
+		width: 3rem;
+		height: 3rem;
+  }
 	${(props) => isActive(props)};
 `;
 export default (props) => {

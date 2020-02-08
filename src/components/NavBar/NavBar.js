@@ -2,9 +2,9 @@ import React  from 'react';
 import styled from 'styled-components';
 
 import {Dashboard, Settings} from 'styled-icons/material'
-import {Scroll} from 'styled-icons/fa-solid/Scroll';
 import {LogOutCircle} from 'styled-icons/boxicons-regular/LogOutCircle';
 import {Sword} from 'styled-icons/remix-fill/Sword';
+import {BookContent} from 'styled-icons/boxicons-regular/BookContent';
 import NavBarItem from './NavBarItem';
 
 const NavBar = styled.div`
@@ -25,8 +25,8 @@ const IconContainer = styled.div`
 	@media (max-width : 812px) {
 		display: grid;
 		grid-template-rows: 1fr;
-		grid-template-columns: 5% 2rem 2rem 2rem 2rem 1fr 2rem 5%;
-		height: 100%;
+		grid-template-columns: 0% 3rem 3rem 3rem 3rem 1fr 3rem 0%;
+		height: 3rem;
   }
 `;
 
@@ -39,7 +39,7 @@ export default (props) => {
 				<div />
 				<NavBarItem path={'/dashboard'}><Dashboard/></NavBarItem>
 				<NavBarItem path={'/combat'}><Sword/></NavBarItem>
-				<NavBarItem path={'/quests'}><Scroll/></NavBarItem>
+				<NavBarItem path={'/quests'}><BookContent/></NavBarItem>
 				<NavBarItem path={'/settings'}><Settings/></NavBarItem>
 				<div />
 				<NavBarItem path={'/'}><LogOutCircle/></NavBarItem>

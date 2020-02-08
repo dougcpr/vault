@@ -50,7 +50,7 @@ export default () => {
 
 	return (
 		<CenterLayout>
-			<Card>
+			<Card autoHeight={true}>
 				<Input aria-label="Username" value={username} onChange={handleUsername} label="Username"/>
 				<Input aria-label="Password" value={password}  onChange={handlePassword} disabled={true} type="password" label="Password"/>
 				<Button onClick={login} block>Login</Button>

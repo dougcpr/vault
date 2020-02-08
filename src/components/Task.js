@@ -65,7 +65,9 @@ export default (props) => {
 		console.log('Delete Task');
 	}
 	return (
-		<Card cursor={'pointer'} backgroundColor={task ? ({ theme }) => theme.colors.green : ({ theme }) => theme.colors.disabled}>
+		<Card autoHeight={true}
+		      cursor={'pointer'}
+		      backgroundColor={task ? ({ theme }) => theme.colors.green : ({ theme }) => theme.colors.disabled}>
 			<TaskContainer>
 				<CheckboxContainer onClick={toggle}>
 					<Checkbox checked={task}/>
