@@ -32,12 +32,13 @@ const EncounterContainer = styled.div`
 `;
 const CharactersContainer = styled.div`
 	column-gap: 1rem;
-	display: grid;
-	grid-auto-rows: 10rem;
-	grid-template-columns: 10rem 10rem 10rem;
+  display: grid;
+  grid-auto-rows: 33%;
+  grid-template-columns: 1fr 1fr 1fr;
 	@media (max-width : 812px) {
 		row-gap: 1rem;
 		justify-content: center;
+    grid-auto-rows: 10rem;
 		grid-template-columns: 1fr 1fr;
   }
 `;
