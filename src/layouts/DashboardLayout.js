@@ -24,7 +24,7 @@ const DashboardLayout = styled.div`
 `;
 
 export default (props) => (
-	<CenterLayout>
+	<CenterLayout mobileOptimization={true}>
 		<Card autoHeight={true} borderRadius={1} boxShadow={2} padding={false}>
 			<DashboardLayout>
 				<NavBar/>
