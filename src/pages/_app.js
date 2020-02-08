@@ -10,7 +10,7 @@ export const theme = {
 			`0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);`
 		],
 		borderRadius: [
-			'0',
+			'0rem',
 			'1rem'
 		],
 		gridColumns: {
@@ -41,9 +41,9 @@ export const theme = {
 		font_medium: '1rem',
 		width_medium: '12.5rem',
 		chartColors: {
-			backgroundColor: ['rgba(80, 188, 145, 0.4)', 'rgba(255, 22, 85, 0.4)', 'rgba(52, 125, 219, 0.4)', 'rgba(255,255,99, 0.4)'],
-			disabledBackground: ['rgba(80, 188, 145, 0.1)', 'rgba(255, 22, 85, 0.1)', 'rgba(52, 125, 219, 0.1)', 'rgba(255,255,99, 0.1)'],
-			hoverColor: ['rgba(80, 188, 145, 0.2)', 'rgba(255, 22, 85, 0.2)', 'rgba(52, 125, 219, 0.2)', 'rgba(255,255,99, 0.2)'],
+			backgroundColor: ['rgba(80, 188, 145, 0.6)', 'rgba(255, 22, 85, 0.6)', 'rgba(52, 125, 219, 0.6)', 'rgba(255,255,99, 0.6)'],
+			disabledBackground: ['rgba(80, 188, 145, 0.2)', 'rgba(255, 22, 85, 0.2)', 'rgba(52, 125, 219, 0.2)', 'rgba(255,255,99, 0.2)'],
+			hoverColor: ['rgba(80, 188, 145, 1)', 'rgba(255, 22, 85, 1)', 'rgba(52, 125, 219, 1)', 'rgba(255,255,99, 1)'],
 			borderColor: ['rgba(80, 188, 145, 1)', 'rgba(255, 22, 85, 1)', 'rgba(52, 125, 219, 1)', 'rgba(255,255,99, 1)']
 		},
 

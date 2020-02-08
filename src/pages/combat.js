@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
 import DashboardLayout from '../layouts/DashboardLayout';
+import CenterLayout from '../layouts/CenterLayout';
 import Dropdown from '../components/Dropdown';
 import Card from '../components/Card';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import Input from '../components/Input';
+import {DiffAdded} from 'styled-icons/octicons/DiffAdded';
 
 const CombatLayout = styled.div`
 	display: grid;
@@ -24,19 +26,19 @@ const EncounterContainer = styled.div`
 	grid-template-columns: 1fr 40%;
 	column-gap: 1rem;
 	@media (max-width : 812px) {
+		row-gap: 1rem;
 		grid-template-columns: 1fr;
   }
 `;
 const CharactersContainer = styled.div`
-	display: grid;
-	grid-auto-rows: 20%;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 	column-gap: 1rem;
-	
-	justify-content: space-between;
-	overflow-x:scroll;
+	display: grid;
+	grid-auto-rows: 10rem;
+	grid-template-columns: 10rem 10rem 10rem;
 	@media (max-width : 812px) {
-		grid-template-columns: 1fr;
+		row-gap: 1rem;
+		justify-content: center;
+		grid-template-columns: 1fr 1fr;
   }
 `;
 
@@ -45,6 +47,11 @@ const ActionsContainer = styled.div`
     display: grid;
     row-gap: 1rem;
     grid-template-columns: 1fr;
+    @media (max-width : 812px) {
+			row-gap: 0rem;
+			grid-template-rows: 1fr 1fr;
+      grid-auto-rows: auto;
+    }
 `;
 
 const ActionContainer = styled.div`
@@ -52,8 +59,25 @@ const ActionContainer = styled.div`
 	grid-template-columns: 1fr 1fr;
 	column-gap: 1rem;
 	@media (max-width : 812px) {
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr 1fr;
   }
+`;
+
+const CenterIcon = styled.div`
+		position: relative;
+    top: 45%;
+    left: 50%;
+    transform: translate(-45%, -50%);
+    width: min-content;
+`;
+
+const AddIcon = styled(DiffAdded)`
+		width: 3rem;
+		height: 3rem;
+    :hover {
+      cursor: pointer;
+      color: ${({theme}) => theme.colors.green};
+    }
 `;
 
 export default () => {
@@ -71,18 +95,15 @@ export default () => {
 				</DropdownContainer>
 				<EncounterContainer>
 					<CharactersContainer>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue} />
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.blue}/>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.red}/>
-						<Card borderRadius={1} backgroundColor={({ theme }) => theme.colors.green}/>
+						<Card autoHeight={true} flat backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item} />
+						<Card autoHeight={true} flat backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item} />
+						<Card autoHeight={true} flat backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item} />
+						<Card autoHeight={true} flat >
+							<CenterIcon>
+								{/* open http://dnd5eapi.co/api/monsters*/}
+								<AddIcon />
+							</CenterIcon>
+						</Card>
 					</CharactersContainer>
 					<ActionsContainer>
 						<ActionContainer>

@@ -2,10 +2,11 @@ import React  from 'react';
 import styled, {css} from 'styled-components'
 
 const isFlatMixin = ({flat}) => {
-	const cardShadow = css`
-		box-shadow: ${({ theme }) => theme.style.box_shadow[1]}
+	const flatCard = css`
+		box-shadow: ${({ theme }) => theme.style.box_shadow[0]}
+		border-radius: ${({ theme }) => theme.style.borderRadius[0]}
 	`;
-	return flat ? null : cardShadow;
+	return flat ? flatCard : null;
 };
 
 const updateCursor = ({cursor}) => {
@@ -23,17 +24,17 @@ const backgroundColor = ({backgroundColor}) => {
 };
 
 const boxShadow = ({boxShadow}) => {
-	const defaultBoxShadow = css`
+	const customBoxShadow = css`
 		box-shadow: ${({ theme }) => theme.style.box_shadow[boxShadow]};
 	`;
-	return boxShadow > 0 ? defaultBoxShadow : null;
+	return boxShadow >= 0 ? customBoxShadow : null;
 };
 
 const updateBorderRadius = ({borderRadius}) => {
 	const defaultBorderRadius = css`
-		border-radius: ${({ theme }) => theme.style.borderRadius[borderRadius]};
+		border-radius: ${borderRadius}rem;
 	`;
-	return borderRadius ? defaultBorderRadius : null;
+	return borderRadius >= 0 ? defaultBorderRadius : null;
 };
 
 const fontColor = ({color}) => {
@@ -72,18 +73,17 @@ const Card = styled.div`
  overflow: hidden;
  width: 100%;
  justify-content: space-around;
- ${(props) => isFlatMixin(props)};
  ${(props) => boxShadow(props)};
  ${(props) => backgroundColor(props)};
  ${(props) => updateBorderRadius(props)};
  ${(props) => fontColor(props)};
  ${(props) => removePadding(props)};
  ${(props) => updateCursor(props)};
+ ${(props) => isFlatMixin(props)};
 	
 	@media (max-width : 812px) {
 		border-radius: 0;
 		box-shadow: ${({ theme }) => theme.style.box_shadow[1]};
-		width: 100vw;
 		${(props) => autoHeight(props)};
   }
 }
