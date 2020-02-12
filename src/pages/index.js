@@ -48,14 +48,20 @@ export default () => {
 		text-decoration: underline;
 	`;
 
+	const LoginCard = styled(Card)`
+	@media (max-width : 812px) {
+		width: 80vw;
+  }
+	`;
+
 	return (
 		<CenterLayout>
-			<Card autoHeight={true}>
+			<LoginCard>
 				<Input aria-label="Username" value={username} onChange={handleUsername} label="Username"/>
 				<Input aria-label="Password" value={password}  onChange={handlePassword} disabled={true} type="password" label="Password"/>
 				<Button onClick={login} block>Login</Button>
 				<Registration>Register your character <RegisterLink onClick={register}>here</RegisterLink>.</Registration>
-			</Card>
+			</LoginCard>
 		</CenterLayout>
 	)
 }

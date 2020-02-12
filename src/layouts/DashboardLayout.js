@@ -8,8 +8,6 @@ const DashboardLayout = styled.div`
 	column-gap: 1rem;
 	display: grid;
 	grid-template-columns: ${({theme}) => theme.style.gridColumns.dashboardLayout};
-	/* width: 64.375rem;
-	height: 33.56rem; */
 	width: 80vw;
 	height: 80vh;
 	/* mobile responsiveness */
@@ -25,7 +23,7 @@ const DashboardLayout = styled.div`
 
 export default (props) => (
 	<CenterLayout mobileOptimization={true}>
-		<Card autoHeight={true} borderRadius={1} boxShadow={2} padding={false}>
+		<Card borderRadius={1} boxShadow={2} padding={false}>
 			<DashboardLayout>
 				<NavBar/>
 				{props.children}

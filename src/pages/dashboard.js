@@ -32,6 +32,7 @@ const GraphCardLayout = styled.div`
 	column-gap: 1rem;
 	@media (max-width : 812px) {
 		grid-template-columns: 1fr;
+		grid-template-rows: 20rem 20rem;
 		overflow: scroll;
   }
 `;
@@ -42,6 +43,7 @@ const Footer = styled.div`
 	column-gap: 1rem;
 	@media (max-width : 812px) {
 		grid-template-columns: 1fr;
+		grid-template-rows: 20rem 20rem;
   }
 `;
 

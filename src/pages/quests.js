@@ -18,9 +18,9 @@ const MainContainer = styled.div`
 	row-gap: 1rem;
 	@media (max-width : 812px) {
 		grid-template-columns: 1fr;
-		grid-template-rows: 3rem 1fr;
+		grid-template-rows: 30% 1fr;
 		padding: ${({theme}) => theme.style.padding[0]};
-		margin: 1rem 0;
+		margin: 1rem;
   }
 `;
 
@@ -40,7 +40,7 @@ const ListOfQuests = styled.div`
 	column-gap: 1rem;
 	row-gap: 1rem;
 	@media (max-width : 812px) {
-	grid-template-columns: 1fr;
+		grid-template-columns: repeat(2, 40%);
   }
 `;
 
@@ -59,7 +59,7 @@ const AddQuestContainer = styled.div`
 	grid-template-columns: 2fr 1fr 1fr;
 	column-gap: 1rem;
 	@media (max-width : 812px) {
-		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-columns: 1fr
   }
 `;
 
@@ -98,7 +98,6 @@ export default () => {
 							{quests.map((quest, i) => {
 								return (
 									<Card
-										autoHeight={true}
 										key={i}
 										cursor={'pointer'}
 										onClick={() => updatePlotPoints(quest)}

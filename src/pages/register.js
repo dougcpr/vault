@@ -34,7 +34,7 @@ export default () => {
 	const [password, setPassword] = useState('');
 	return (
 		<CenterLayout>
-			<Card  autoHeight={true}>
+			<Card>
 				<Input aria-label="Username" value={username} onChange={handleUsername} label="Username"/>
 				<Input aria-label="Password" value={password} onChange={handlePassword} type="password" label="Password"/>
 				<Button onClick={register} block>Register</Button>
