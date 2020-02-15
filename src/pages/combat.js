@@ -88,7 +88,6 @@ const InitiativeList = styled.div`
 `;
 
 const CombatView = ({monsterLibrary}) => {
-	console.log(monsterLibrary);
 	const [encounter, setEncounter] = useState('');
 	const encounters = ['Encounter 1', 'Encounter 2', 'Encounter 3', 'Encounter 4'];
 	const [action, setAction] = useState('Damage');
@@ -112,7 +111,6 @@ const CombatView = ({monsterLibrary}) => {
 						<Card flat backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Main Monster 7</Card>
 						<Card flat >
 							<CenterIcon>
-								{/* open http://dnd5eapi.co/api/monsters*/}
 								<AddIcon />
 							</CenterIcon>
 						</Card>
@@ -141,10 +139,13 @@ CombatView.propTypes = {
 	monsterLibrary: PropTypes.object
 };
 
-// TODO: Generating CORS when visiting page, when reloading route it fetches wihtout generating CORS error
 CombatView.getInitialProps = async() => {
 	// call 5e database for monsters
-	const monsterResponse = await fetch(`https://dnd5eapi.co/api/monsters`);
+	const monsterResponse = await fetch(`
+	https://api.open5e.com/monsters/?
+	fields=slug,name,challenge_rating,type,size,hit_points,document__slug,%20document__title&
+	limit=2000&
+	ordering=slug`);
 	// parse the response into the surveyDefinition
 	const monsterLibrary = await monsterResponse.json();
 	return {monsterLibrary};

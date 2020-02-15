@@ -1,8 +1,11 @@
-import React from 'react';
+import React  from 'react';
 import App from 'next/app'
+import Modal from '../components/Modal';
+import Button from '../components/Button';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 export const theme = {
+	modal: true,
 	style: {
 		box_shadow: [
 			`none`,
@@ -46,7 +49,6 @@ export const theme = {
 			hoverColor: ['rgba(80, 188, 145, 1)', 'rgba(255, 22, 85, 1)', 'rgba(52, 125, 219, 1)', 'rgba(255,255,99, 1)'],
 			borderColor: ['rgba(80, 188, 145, 1)', 'rgba(255, 22, 85, 1)', 'rgba(52, 125, 219, 1)', 'rgba(255,255,99, 1)']
 		},
-
 	},
 };
 
@@ -59,6 +61,10 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+function toggleModal() {
+	theme.modal = !theme.modal;
+}
+
 export default class Vault extends App {
 	render() {
 		const { Component, pageProps } = this.props;
@@ -66,7 +72,9 @@ export default class Vault extends App {
 				<ThemeProvider theme={theme}>
 					<title>Vault</title>
 					<GlobalStyle />
-					<Component {...pageProps}/>
+					<Component { ...pageProps}/>
+					<Modal visibility={theme.modal} />
+					<Button onClick={() => toggleModal()}>Toggle</Button>
 				</ThemeProvider>
 		)
 	}
