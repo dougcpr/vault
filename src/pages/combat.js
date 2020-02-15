@@ -36,8 +36,8 @@ const MonstersContainer = styled.div`
 	column-gap: 1rem;
 	row-gap: 1rem;
   display: grid;
-  grid-auto-rows: 33%;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 45%;
+  grid-template-columns: 1fr 1fr;
 	@media (max-width : 812px) {
 		row-gap: 1rem;
 		justify-content: center;
@@ -88,6 +88,7 @@ const InitiativeList = styled.div`
 `;
 
 const CombatView = ({monsterLibrary}) => {
+	console.log(monsterLibrary);
 	const [encounter, setEncounter] = useState('');
 	const encounters = ['Encounter 1', 'Encounter 2', 'Encounter 3', 'Encounter 4'];
 	const [action, setAction] = useState('Damage');
@@ -143,7 +144,7 @@ CombatView.propTypes = {
 // TODO: Generating CORS when visiting page, when reloading route it fetches wihtout generating CORS error
 CombatView.getInitialProps = async() => {
 	// call 5e database for monsters
-	const monsterResponse = await fetch(`http://dnd5eapi.co/api/monsters`);
+	const monsterResponse = await fetch(`https://dnd5eapi.co/api/monsters`);
 	// parse the response into the surveyDefinition
 	const monsterLibrary = await monsterResponse.json();
 	return {monsterLibrary};
