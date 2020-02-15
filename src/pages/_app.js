@@ -1,11 +1,10 @@
 import React  from 'react';
 import App from 'next/app'
-import Modal from '../components/Modal';
-import Button from '../components/Button';
+import AppLayout from '../layouts/AppLayout';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 export const theme = {
-	modal: true,
+	modal: false,
 	style: {
 		box_shadow: [
 			`none`,
@@ -61,10 +60,6 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-function toggleModal() {
-	theme.modal = !theme.modal;
-}
-
 export default class Vault extends App {
 	render() {
 		const { Component, pageProps } = this.props;
@@ -72,9 +67,9 @@ export default class Vault extends App {
 				<ThemeProvider theme={theme}>
 					<title>Vault</title>
 					<GlobalStyle />
-					<Component { ...pageProps}/>
-					<Modal visibility={theme.modal} />
-					<Button onClick={() => toggleModal()}>Toggle</Button>
+					<AppLayout>
+						<Component { ...pageProps}/>
+					</AppLayout>
 				</ThemeProvider>
 		)
 	}

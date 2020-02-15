@@ -1,13 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styled, {css} from 'styled-components';
 import CenterLayout from '../layouts/CenterLayout';
 import Table from '../components/Table/Table'
 
-const toggleVisibility = ({modal}) => {
+const toggleVisibility = ({visibility}) => {
+	console.log(visibility);
 	const visible = css`
 		display: block !important;
 	`;
-	return modal ? visible : null;
+	return visibility ? visible : null;
 };
 
 const ModalContainer = styled.div`
@@ -29,13 +30,9 @@ const ModalBody = styled.div`
 `;
 
 export default (props) => {
-	const {visibility, ...RemainingProps} = props;
-	const [modal, toggleModal] = useState(visibility);
-	function dismiss() {
-		toggleModal(!modal)
-	}
+	let {visibility, toggleModal, ...RemainingProps} = props;
 	return (
-		<ModalContainer modal={modal} onClick={() => dismiss()}>
+		<ModalContainer visibility={visibility} onClick={() => toggleModal(!visibility)}>
 			<CenterLayout>
 				<ModalBody onClick={(e) => {e.stopPropagation()}}>
 					<Table />
