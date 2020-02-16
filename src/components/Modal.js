@@ -4,7 +4,6 @@ import CenterLayout from '../layouts/CenterLayout';
 import Table from '../components/Table/Table'
 
 const toggleVisibility = ({visibility}) => {
-	console.log(visibility);
 	const visible = css`
 		display: block !important;
 	`;

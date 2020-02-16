@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import fetch from 'isomorphic-unfetch';
 import DashboardLayout from '../layouts/DashboardLayout';
 import PropTypes from 'prop-types';
@@ -8,6 +8,7 @@ import styled from 'styled-components';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import {DiffAdded} from 'styled-icons/octicons/DiffAdded';
+import {AppContext} from '../layouts/AppLayout';
 
 const CombatLayout = styled.div`
 	display: grid;
@@ -88,6 +89,7 @@ const InitiativeList = styled.div`
 `;
 
 const CombatView = ({monsterLibrary}) => {
+	const { toggleModal, visibility } = useContext(AppContext);
 	const [encounter, setEncounter] = useState('');
 	const encounters = ['Encounter 1', 'Encounter 2', 'Encounter 3', 'Encounter 4'];
 	const [action, setAction] = useState('Damage');
@@ -111,7 +113,7 @@ const CombatView = ({monsterLibrary}) => {
 						<Card flat backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Main Monster 7</Card>
 						<Card flat >
 							<CenterIcon>
-								<AddIcon />
+								<AddIcon onClick={() => toggleModal(!visibility)} />
 							</CenterIcon>
 						</Card>
 					</MonstersContainer>
@@ -136,7 +138,7 @@ const CombatView = ({monsterLibrary}) => {
 };
 
 CombatView.propTypes = {
-	monsterLibrary: PropTypes.object
+	monsterLibrary: PropTypes.object,
 };
 
 CombatView.getInitialProps = async() => {
