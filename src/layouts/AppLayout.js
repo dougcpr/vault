@@ -12,6 +12,7 @@ export default (props) => {
 	const {...RemainingProps} = props;
 	return (
 		<App toggleModal={toggleModal}>
+			{/* set up app context and pass state mgmt for toggling modal to child components */}
 			<AppContext.Provider value={{visibility: visibility, toggleModal: toggleModal }}>
 				{props.children}
 			</AppContext.Provider>

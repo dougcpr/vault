@@ -3,6 +3,7 @@ import styled, {css} from 'styled-components';
 import CenterLayout from '../layouts/CenterLayout';
 import Table from '../components/Table/Table'
 
+// Maybe removing?
 const toggleVisibility = ({visibility}) => {
 	const visible = css`
 		display: block !important;

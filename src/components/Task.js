@@ -68,6 +68,7 @@ export default (props) => {
 		<Card
 		      cursor={'pointer'}
 		      backgroundColor={task ? ({ theme }) => theme.colors.green : ({ theme }) => theme.colors.disabled}>
+			{/* Checkbox + Text + Trashcan */}
 			<TaskContainer>
 				<CheckboxContainer onClick={toggle}>
 					<Checkbox checked={task}/>

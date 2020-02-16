@@ -20,7 +20,7 @@ export const BlankCheckbox = styled(CheckboxBlank)`
 		color: ${({ theme }) => theme.colors.green};
 	}
 `;
-
+// Refactor? Is this the best way to draw a new checkbox?
 export default (props) => {
 	const {checked, ...RemainingProps } = props;
 	if(checked) {

@@ -1,6 +1,7 @@
 import React  from 'react';
 import styled, {css} from 'styled-components'
 
+// TODO: Too many props?
 const isFlatMixin = ({flat}) => {
 	const flatCard = css`
 		box-shadow: ${({ theme }) => theme.style.box_shadow[0]}
