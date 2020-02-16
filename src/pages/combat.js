@@ -88,7 +88,7 @@ const AddIcon = styled(DiffAdded)`
 const InitiativeList = styled.div`
 `;
 
-const CombatView = ({monsterLibrary}) => {
+const CombatView = () => {
 	const { toggleModal, visibility } = useContext(AppContext);
 	const [encounter, setEncounter] = useState('');
 	const encounters = ['Encounter 1', 'Encounter 2', 'Encounter 3', 'Encounter 4'];
@@ -142,15 +142,7 @@ CombatView.propTypes = {
 };
 
 CombatView.getInitialProps = async() => {
-	// call 5e database for monsters
-	const monsterResponse = await fetch(`
-	https://api.open5e.com/monsters/?
-	fields=slug,name,challenge_rating,type,size,hit_points,document__slug,%20document__title&
-	limit=2000&
-	ordering=slug`);
-	// parse the response into the surveyDefinition
-	const monsterLibrary = await monsterResponse.json();
-	return {monsterLibrary};
+	return {}
 };
 
 export default CombatView;
