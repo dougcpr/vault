@@ -89,7 +89,11 @@ const InitiativeList = styled.div`
 `;
 
 const CombatView = () => {
-	const { toggleModal, visibility } = useContext(AppContext);
+	function toggle() {
+		console.log('Toggle');
+		toggleModal(!visibility);
+	}
+	const {toggleModal, visibility} = useContext(AppContext);
 	const [encounter, setEncounter] = useState('');
 	const encounters = ['Encounter 1', 'Encounter 2', 'Encounter 3', 'Encounter 4'];
 	const [action, setAction] = useState('Damage');
@@ -113,7 +117,7 @@ const CombatView = () => {
 						<Card flat backgroundColor={({ theme }) => theme.colors.disabled_NavBar_Item}>Main Monster 7</Card>
 						<Card flat >
 							<CenterIcon>
-								<AddIcon onClick={() => toggleModal(!visibility)} />
+								<AddIcon onClick={() => toggle()} />
 							</CenterIcon>
 						</Card>
 					</MonstersContainer>
